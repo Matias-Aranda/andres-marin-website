@@ -12,16 +12,23 @@
 }
 
 @font-face {
-  font-family: Drain Monten;
+  font-family: Halton Light italic;
   font-style: normal;
-  src: url("/fonts/Drain-Monten.woff2");
+  src: url("/fonts/Halton-light-italic.woff2");
+}
+
+@font-face {
+  font-family: Drain Monten Oblique;
+  font-style: normal;
+  src: url("/fonts/Drain-Monten-Oblique.woff2");
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-primary: var(--primary);
   --font-body: "Halton", sans-serif;
-  --font-display: "Drain Monten", sans-serif;
+  --font-body-light-italic: "Halton Light italic", sans-serif;
+  --font-display: "Drain Monten Oblique", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
