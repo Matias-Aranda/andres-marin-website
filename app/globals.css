@@ -12,6 +12,12 @@
 }
 
 @font-face {
+  font-family: Halton Light;
+  font-style: normal;
+  src: url("/fonts/Halton-light.woff2");
+}
+
+@font-face {
   font-family: Halton Light italic;
   font-style: normal;
   src: url("/fonts/Halton-light-italic.woff2");
@@ -23,12 +29,20 @@
   src: url("/fonts/Drain-Monten-Oblique.woff2");
 }
 
+@font-face {
+  font-family: Conthic;
+  font-style: normal;
+  src: url("/fonts/Conthic.woff2");
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-primary: var(--primary);
   --font-body: "Halton", sans-serif;
+  --font-body-light: "Halton Light", sans-serif;
   --font-body-light-italic: "Halton Light italic", sans-serif;
   --font-display: "Drain Monten Oblique", sans-serif;
+  --font-display-condensed: "Conthic", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -43,3 +57,4 @@ body {
   color: var(--foreground);
   font-family: "Halton", sans-serif;
 }
+
