@@ -15,8 +15,8 @@ const Navbar = () => {
             <Link href="/sponsors" className='text-neutral-50'>Sponsor Me</Link>
         </div>
         <div className='flex items-center gap-6'>
-            <Link href="#" className='text-neutral-50'>Login</Link>
-            <Link href="#" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</Link>
+            <Link href="/login" className='text-neutral-50'>Login</Link>
+            <Link href="/register" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</Link>
         </div>
     </div>
   )
