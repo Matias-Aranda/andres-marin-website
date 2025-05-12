@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='flex items-center justify-between p-20 border-t border-primary'>
+    <div className='flex items-center justify-between py-20 px-25 border-t border-primary'>
       <div className='flex flex-col items-start justify-center'>
         <img src="/footer_logo.svg"  className='h-[40]'/>
         <p className='text-neutral-50 leading-relaxed w-4/5 my-12'>Las explicaciones más completas del Simracing en Habla Hispana.</p>
