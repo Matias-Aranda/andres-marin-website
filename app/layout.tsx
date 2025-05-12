@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import SocialSidebar from "@/components/Utils/SocialSidebar";
 import Footer from "@/components/Layout/Footer";
+import LoadingStyle from "@/components/Utils/LoadingScreen";
 import { useState } from "react";
 
 const geistSans = Geist({

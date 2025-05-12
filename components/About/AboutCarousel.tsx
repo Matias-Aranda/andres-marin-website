@@ -15,7 +15,6 @@ const AboutCarousel = () => {
         return () => clearInterval(interval); // cleanup on unmount
     }, []);
 
-    console.log(count)
 
 
   return (

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const SocialSidebar = () => {
   return (
-    <div className='fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col gap-4 p-4 bg-transparent z-10'>
+    <div className='fixed top-1/2 right-0 transform -translate-y-1/2 flex flex-col gap-4 p-4 bg-transparent z-[3]'>
         <Link target='_blank' href="https://www.instagram.com/andr3smarin8/">
             <img className='h-6 w-6' src="/instagram_logo.svg" alt="logo" />
         </Link>
