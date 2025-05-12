@@ -1,7 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 
-const page = () => {
+export default async function page() {
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
   return (
     <div className='h-screen flex items-center justify-center bg-[url(/auth_bg.png)] bg-cover bg-center'>
         <div className='w-[600px] py-15 px-20 border border-primary rounded-md bg-background/50 bg-opacity-50 backdrop-blur-lg flex flex-col'>
@@ -27,5 +30,3 @@ const page = () => {
     </div>
   )
 }
-
-export default page

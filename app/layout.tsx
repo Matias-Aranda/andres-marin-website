@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import SocialSidebar from "@/components/Utils/SocialSidebar";
 import Footer from "@/components/Layout/Footer";
+import { useState } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,11 +26,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}  font-body text-xl`}>
         <Navbar />
-        {children}
+          {children}
         <Footer />
       </body>
     </html>
