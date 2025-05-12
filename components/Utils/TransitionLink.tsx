@@ -24,7 +24,7 @@ export default function TransitionLink({ href, children, setLoading, className}:
   
       setTimeout(() => {
         router.push(href);
-      }, 1000);
+      }, 300);
   
       setTimeout(() => {
         setLoading && setLoading(false);
