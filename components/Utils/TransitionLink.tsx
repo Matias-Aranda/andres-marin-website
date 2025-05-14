@@ -34,8 +34,6 @@ export default function TransitionLink({ href, children, setLoading, className}:
 
   };
 
-  console.log(pathname, href)
-
   return (
     <a href={href} onClick={handleClick} className={className}>
       {children}

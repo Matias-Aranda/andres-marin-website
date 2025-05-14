@@ -3,9 +3,10 @@ import React from 'react'
 interface VideoProps {
   thumbnail: string;
   title: string;
+  link: string;
 }
 
-const Video: React.FC<VideoProps> = ({thumbnail, title}) => {
+const Video: React.FC<VideoProps> = ({thumbnail, title, link}) => {
   return (
     <div className='cursor-pointer flex flex-col items-start justify-start gap-4 w-[460px]'>
         <div className='relative'>
