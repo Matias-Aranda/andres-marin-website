@@ -6,7 +6,7 @@ const YOUTUBE_CHANNEL_ID = 'UCSZAqzuOERSSsz_YfTsENsw'
 
 export async function GET() {
   const parser = new Parser()
-  const feed = await parser.parseURL(`https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`)
+  const feed = await parser.parseURL(`https://www.youtube.com/feeds/videos.xml?playlist_id=PLQ-PPF3KfcNdh2brg40rdHCnJGfsBNS3y`)
 
   const videos = feed.items
     .filter(item => item.link?.includes('watch?v=') && !item.link.includes('/shorts/'))
