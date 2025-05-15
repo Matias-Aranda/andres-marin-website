@@ -18,7 +18,7 @@ const SponsorsContact = () => {
                 Mensaje
                 <textarea name="message" className='h-[200px] border border-primary p-2 rounded text-white resize-none' />
             </label>
-            <button className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer'>Log In</button>
+            <button className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer'>Enviar</button>
         </form>
         <div className='absolute bottom-0 w-full h-[10%] bg-linear-0 from-background to-transparent'></div>
     </div>
