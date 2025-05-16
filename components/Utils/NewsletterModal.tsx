@@ -50,7 +50,7 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({ setShown }) => {
 
   return (
     <div className='h-screen w-full flex fixed justify-end top-0 z-10'>
-        <div ref={bgRef} onClick={closeModal} className='bg-[rgba(18,18,29,.9)] absolute w-full h-full z-10'></div>
+        <div ref={bgRef} onClick={closeModal} className='bg-[#0C0C1D]/90 absolute w-full h-full z-10'></div>
         <form ref={modalRef} className='bg-background/50 w-[40%] backdrop-blur flex flex-col items-start justify-center gap-6 border border-l-primary p-30 z-10 relative'>
             <h3 className='text-[24px] font-display text-white self-center'>suscribirse al <span className='text-primary'>newsletter</span></h3>
             <label className='text-base text-white leading-none flex flex-col gap-4 w-full'>
