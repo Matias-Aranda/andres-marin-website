@@ -12,7 +12,7 @@ const Navbar = () => {
   const [loading, setLoading] = React.useState(false);
 
   return (
-    <div className='flex items-center justify-between px-15 py-4 bg-transparent fixed top-0 left-0 right-0 z-9 text-white'>
+    <div className='flex items-center justify-between px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white'>
         {loading && <LoadingScreen />}
         <div className='flex items-center gap-18'>
             <TransitionLink setLoading={setLoading} href="/">

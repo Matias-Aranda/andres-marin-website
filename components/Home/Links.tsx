@@ -12,7 +12,7 @@ const Links = () => {
         />
         <p className='text-neutral-50 z-2'>Sobre Mí</p>
         <h3 className='text-neutral-50 text-[48px] font-display mx-0 my-4 leading-none z-2'>Andrés Marín</h3>
-        <Link href="/porsche_cup" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
+        <Link href="/about" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
       </div>
       <div className='group h-[700px] flex flex-col items-center justify-end text-center pb-15 relative overflow-hidden'>
         <img
@@ -22,7 +22,7 @@ const Links = () => {
         />
         <p className='text-neutral-50 z-2'>Ofrezco</p>
         <h3 className='text-neutral-50 text-[48px] font-display mx-0 my-4 leading-none z-2'>Servicios</h3>
-        <Link href="/porsche_cup" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
+        <Link href="/services" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
       </div>
       <div className='group h-[700px] flex flex-col items-center justify-end text-center pb-15 relative overflow-hidden'>
         <img
@@ -32,7 +32,7 @@ const Links = () => {
         />
         <p className='text-neutral-50 z-2'>Sígueme en</p>
         <h3 className='text-neutral-50 text-[48px] font-display mx-0 my-4 leading-none z-2'>Redes Sociales</h3>
-        <Link href="/porsche_cup" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
+        <Link href="/socials" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
       </div>
       <div className='group h-[700px] flex flex-col items-center justify-end text-center pb-15 relative overflow-hidden'>
         <img
@@ -42,7 +42,7 @@ const Links = () => {
         />
         <p className='text-neutral-50 z-2'>Apóyame</p>
         <h3 className='text-neutral-50 text-[48px] font-display mx-0 my-4 leading-none z-2'>Sponsor Me</h3>
-        <Link href="/porsche_cup" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
+        <Link href="/sponsors" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
       </div>
 
     </div>
