@@ -4,15 +4,34 @@ import Link from 'next/link'
 import TransitionLink from '../Utils/TransitionLink';
 import gsap from 'gsap';
 import LoadingScreen from '../Utils/LoadingScreen';
+import { useEffect } from 'react';
 
 
 
 const Navbar = () => {
 
   const [loading, setLoading] = React.useState(false);
+  const [showClass, setShowClass] = React.useState("");
+  const [scrollPos, setScrollPos] = React.useState(0);
+
+  useEffect(() => {
+    scrollPos < 100 ? setShowClass("") : {}
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollPos]);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    const visible = currentScrollPos < 100 || scrollPos > currentScrollPos;
+
+    setScrollPos(currentScrollPos);
+    visible ? setShowClass("bg-background shadow-2xl") : setShowClass("translate-y-[-100%]");
+  };
 
   return (
-    <div className='flex items-center justify-between px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white'>
+    <div className={`flex items-center justify-between px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white transition-all duration-400 ${showClass}`}>
         {loading && <LoadingScreen />}
         <div className='flex items-center gap-18'>
             <TransitionLink setLoading={setLoading} href="/">
