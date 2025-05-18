@@ -18,7 +18,7 @@ const page = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         setError('');
         try {
-            await signUp(email, password);
+            await signUp(email, password, username);
             setUsername("")
             setEmail("")
             setPassword("")
@@ -39,6 +39,8 @@ const page = () => {
         setError(err.message);
         }
     };
+
+    
 
   return (
     <div className='h-screen flex items-center justify-center bg-[url(/auth_bg.png)] bg-cover bg-center'>
