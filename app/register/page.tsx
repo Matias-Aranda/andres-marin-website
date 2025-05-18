@@ -30,7 +30,7 @@ const page = () => {
     const handleGoogleLogin = async () => {
         setError('');
         try {
-        await signInWithGoogle();
+            await signInWithGoogle();
         } catch (err: any) {
         setError(err.message);
         }

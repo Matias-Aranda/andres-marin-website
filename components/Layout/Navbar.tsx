@@ -5,11 +5,14 @@ import TransitionLink from '../Utils/TransitionLink';
 import gsap from 'gsap';
 import LoadingScreen from '../Utils/LoadingScreen';
 import { useEffect } from 'react';
+import { useAuth } from '@/context/auth-context';
+import { logout } from '@/lib/auth';
 
 
 
 const Navbar = () => {
 
+  const { user } = useAuth();
   const [loading, setLoading] = React.useState(false);
   const [showClass, setShowClass] = React.useState("");
   const [scrollPos, setScrollPos] = React.useState(0);
@@ -30,6 +33,7 @@ const Navbar = () => {
     visible ? setShowClass("bg-background shadow-2xl") : setShowClass("translate-y-[-100%]");
   };
 
+
   return (
     <div className={`flex items-center justify-between px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white transition-all duration-400 ${showClass}`}>
         {loading && <LoadingScreen />}
@@ -43,10 +47,17 @@ const Navbar = () => {
             <TransitionLink setLoading={setLoading} href="/socials">Redes Sociales</TransitionLink>
             <TransitionLink setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
         </div>
-        <div className='flex items-center gap-6'>
-            <TransitionLink setLoading={setLoading} href="/login">Login</TransitionLink>
-            <TransitionLink setLoading={setLoading} href="/register" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</TransitionLink>
+        {user ? 
+        <div className='flex items-center gap-6 cursor-pointer' onClick={logout}>
+              <p>{user.displayName}</p>
+              <img src="/user_pfp.svg"/>
         </div>
+        :
+        <div className='flex items-center gap-6'>
+                <TransitionLink setLoading={setLoading} href="/login">Login</TransitionLink>
+                <TransitionLink setLoading={setLoading} href="/register" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</TransitionLink>
+        </div>
+        }
     </div>
   )
 }

@@ -25,9 +25,10 @@ export default function page() {
     const handleGoogleLogin = async () => {
         setError('');
         try {
-        await signInWithGoogle();
+            await signInWithGoogle();
         } catch (err: any) {
         setError(err.message);
+        alert(err.message);
         }
     };
 
@@ -45,7 +46,7 @@ export default function page() {
                     <input type="password" className='h-[55px] border border-primary p-2 rounded text-white' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <Link href="" className='underline text-white text-base'>Olvidaste tu contraseña?</Link>
-                <button className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer'>Log In</button>
+                <button className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer' onClick={handleSubmit}>Log In</button>
                 <button className='text-base text-background px-8 py-4 bg-[#f2f2f2] rounded-md cursor-pointer relative' onClick={handleGoogleLogin}>
                     <img src="/google_icon.svg" className='absolute top-[50%] translate-[-50%] left-10'/>
                     Sign in with Google
