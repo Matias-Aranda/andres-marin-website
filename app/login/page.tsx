@@ -1,7 +1,35 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
+import { useState } from 'react';
+import { signIn, signUp, signInWithGoogle } from '@/lib/auth';
+import { useAuth } from '@/context/auth-context';
 
-export default async function page() {
+export default function page() {
+
+    const { user } = useAuth();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError('');
+        try {
+            await signIn(email, password);
+        } catch (err: any) {
+        setError(err.message);
+        }
+    };
+
+    const handleGoogleLogin = async () => {
+        setError('');
+        try {
+        await signInWithGoogle();
+        } catch (err: any) {
+        setError(err.message);
+        }
+    };
 
   return (
     <div className='h-screen flex items-center justify-center bg-[url(/auth_bg.png)] bg-cover bg-center'>
@@ -10,15 +38,15 @@ export default async function page() {
             <form className='flex flex-col gap-6 mt-5'>
                 <label className='text-base text-white leading-none flex flex-col gap-4'>
                     Email
-                    <input type="email" className='h-[55px] border border-primary p-2 rounded text-white' />
+                    <input type="email" className='h-[55px] border border-primary p-2 rounded text-white' value={email} onChange={(e) => setEmail(e.target.value)} />
                 </label>
                 <label className='text-base text-white leading-none flex flex-col gap-4'>
                     Contraseña
-                    <input type="password" className='h-[55px] border border-primary p-2 rounded text-white' />
+                    <input type="password" className='h-[55px] border border-primary p-2 rounded text-white' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <Link href="" className='underline text-white text-base'>Olvidaste tu contraseña?</Link>
                 <button className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer'>Log In</button>
-                <button className='text-base text-background px-8 py-4 bg-[#f2f2f2] rounded-md cursor-pointer relative'>
+                <button className='text-base text-background px-8 py-4 bg-[#f2f2f2] rounded-md cursor-pointer relative' onClick={handleGoogleLogin}>
                     <img src="/google_icon.svg" className='absolute top-[50%] translate-[-50%] left-10'/>
                     Sign in with Google
                 </button>

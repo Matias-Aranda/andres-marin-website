@@ -6,6 +6,7 @@ import SocialSidebar from "@/components/Utils/SocialSidebar";
 import Footer from "@/components/Layout/Footer";
 import LoadingStyle from "@/components/Utils/LoadingScreen";
 import { useState } from "react";
+import { AuthProvider } from '@/context/auth-context';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,9 +33,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}  font-body text-xl`}>
-        <Navbar />
-          {children}
-        <Footer />
+        <AuthProvider>
+          <Navbar />
+            {children}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
