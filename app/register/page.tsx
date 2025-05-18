@@ -16,6 +16,7 @@ const page = () => {
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
         setError('');
         try {
             await signUp(email, password, username);

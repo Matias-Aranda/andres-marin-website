@@ -5,8 +5,8 @@ import {
   signInWithPopup,
   signOut,
   createUserWithEmailAndPassword,
-  updateProfile,
   signInWithEmailAndPassword,
+  updateProfile,
 } from 'firebase/auth';
 
 export const signUp = async (email: string, password: string, displayName: string) => {
