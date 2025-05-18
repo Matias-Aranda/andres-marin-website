@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react';
 import { signIn, signUp, signInWithGoogle } from '@/lib/auth';
 import { useAuth } from '@/context/auth-context';
+import { useRouter } from 'next/navigation';
 
 const page = () => {
 
@@ -12,25 +13,28 @@ const page = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
         setError('');
         try {
             await signUp(email, password);
             setUsername("")
             setEmail("")
             setPassword("")
+            router.push("/")
         } catch (err: any) {
         setError(err.message);
         alert(err.message)
         }
     };
 
-    const handleGoogleLogin = async () => {
+    const handleGoogleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
         setError('');
         try {
             await signInWithGoogle();
+            router.push("/")
         } catch (err: any) {
         setError(err.message);
         }
@@ -53,8 +57,8 @@ const page = () => {
                     Contraseña
                     <input type="password" required className='h-[55px] border border-primary p-2 rounded text-white' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
-                <button className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer' onClick={handleSubmit}>Registrarse</button>
-                <button className='text-base text-background px-8 py-4 bg-[#f2f2f2] rounded-md cursor-pointer relative' onClick={handleGoogleLogin}>
+                <button type="button" className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer' onClick={handleSubmit}>Registrarse</button>
+                <button type="button" className='text-base text-background px-8 py-4 bg-[#f2f2f2] rounded-md cursor-pointer relative' onClick={handleGoogleLogin}>
                     <img src="/google_icon.svg" className='absolute top-[50%] translate-[-50%] left-10'/>
                     Sign up with Google
                 </button>
