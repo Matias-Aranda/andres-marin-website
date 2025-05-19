@@ -24,6 +24,7 @@ const page = () => {
             setEmail("")
             setPassword("")
             router.push("/")
+            window.location.href = '/';
         } catch (err: any) {
         setError(err.message);
         alert(err.message)
