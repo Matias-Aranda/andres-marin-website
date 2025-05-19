@@ -8,6 +8,8 @@ import { useEffect } from 'react';
 import { useAuth } from '@/context/auth-context';
 import { logout } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
+import HamburgerButton from './HamburgerButton';
+import NavMenu from './NavMenu';
 
 
 
@@ -18,6 +20,8 @@ const Navbar = () => {
   const [showClass, setShowClass] = React.useState("");
   const [scrollPos, setScrollPos] = React.useState(0);
   const [count, setCount] = React.useState("");
+  const [mobile, setMobile] = React.useState(false);
+  const [shown, setShown] = React.useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -40,30 +44,52 @@ const Navbar = () => {
     setCount(prevCount => prevCount + 1)
   }, [router])
 
+  useEffect(() => {
+    const handleResize = () => {
+      setMobile(window.innerWidth < 1024);
+    };
+
+    // Set initial value
+    handleResize();
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup on unmount
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  console.log(mobile)
+
   return (
-    <div className={`flex items-center justify-between px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white transition-all duration-400 ${showClass}`}>
+    <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white transition-all duration-400 ${showClass} xl:text-xl text-base`}>
         {loading && <LoadingScreen />}
-        <div className='flex items-center gap-18'>
+        <div className='flex items-center 2xl:gap-18 xl:gap-12 lg:gap-10 gap-6 '>
             <TransitionLink setLoading={setLoading} href="/">
-              <img className='h-8' src="/nav_logo.svg" alt="logo" />
+              <img className='lg:h-8 h-6' src="/nav_logo.svg" alt="logo" />
             </TransitionLink>
-            <TransitionLink setLoading={setLoading} href="/">Inicio</TransitionLink>
-            <TransitionLink setLoading={setLoading} href="/about">Sobre Mí</TransitionLink>
-            <TransitionLink setLoading={setLoading} href="/services">Servicios</TransitionLink>
-            <TransitionLink setLoading={setLoading} href="/socials">Redes Sociales</TransitionLink>
-            <TransitionLink setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
+            {!mobile && <>
+              <TransitionLink setLoading={setLoading} href="/">Inicio</TransitionLink>
+              <TransitionLink setLoading={setLoading} href="/about">Sobre Mí</TransitionLink>
+              <TransitionLink setLoading={setLoading} href="/services">Servicios</TransitionLink>
+              <TransitionLink setLoading={setLoading} href="/socials">Redes Sociales</TransitionLink>
+              <TransitionLink setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
+            </>}
         </div>
+        {!mobile && <>
         {user ? 
-        <div className='flex items-center gap-6 cursor-pointer' onClick={logout}>
+        <div className='flex items-center gap-4 cursor-pointer' onClick={logout}>
               <p>{user.displayName}</p>
-              <img src="/user_pfp.svg"/>
+              <img src="/user_pfp.svg" className='h-[35px]'/>
         </div>
         :
         <div className='flex items-center gap-6'>
                 <TransitionLink setLoading={setLoading} href="/login">Login</TransitionLink>
                 <TransitionLink setLoading={setLoading} href="/register" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</TransitionLink>
-        </div>
-        }
+        </div>}
+        </>}
+        {mobile && <HamburgerButton shown={shown} setShown={setShown}/>}
+        {shown && <NavMenu setShown={setShown} setLoading={setLoading}/>}
     </div>
   )
 }

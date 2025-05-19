@@ -57,12 +57,12 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({ setShown }) => {
                 Email
                 <input type="email" className='h-[55px] border border-primary p-2 rounded text-white' />
             </label>
-            <p className='text-base text-white/50 font-body-light-italic leading-relaxed'>
-                Privacy and Marketing Consent*<br/>
-                I have read the <span>Privacy Policy</span> and confirm I want to receive marketing communications 
-                from Ferrari S.p.A. regarding the world of Ferrari, as described in the notice. 
-                If you select “I do not consent”, you will no longer be kept up-to-date about our latest news, 
-                launches of new vehicle models and event invitations.
+            <p className='text-sm text-white/50 font-body-light-italic leading-relaxed'>
+                Aviso de consentimiento*<br/>
+                Al suscribirte a nuestro newsletter, aceptas recibir comunicaciones periódicas por correo electrónico con novedades, promociones, 
+                contenidos exclusivos y actualizaciones sobre nuestros productos y servicios.<br/>
+                Nos comprometemos a proteger tu información personal y a utilizarla únicamente con fines relacionados a nuestras actividades. 
+                Puedes darte de baja en cualquier momento a través del enlace disponible en cada correo que enviamos.
             </p>
             <button  className='text-base text-background my-2 px-8 py-2.5 px-25 bg-primary rounded-md cursor-pointer'>Suscribirse</button>
             <div onClick={closeModal} className='bg-primary w-[33px] h-[33px] rounded-full absolute left-[-100px] cursor-pointer flex items-center justify-center'>
