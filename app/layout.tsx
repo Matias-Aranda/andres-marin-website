@@ -32,7 +32,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}  font-body text-xl`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}  font-body text-base lg:text-xl`}>
         <AuthProvider>
           <Navbar />
             {children}

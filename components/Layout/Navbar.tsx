@@ -37,12 +37,16 @@ const Navbar = () => {
     const visible = currentScrollPos < 100 || scrollPos > currentScrollPos;
 
     setScrollPos(currentScrollPos);
-    visible ? setShowClass("bg-background shadow-2xl") : setShowClass("translate-y-[-100%]");
+    visible ? setShowClass("bg-background/35 backdrop-blur-xl shadow-[0px_5px_15px_rgba(0,0,0,.4)]") : setShowClass("translate-y-[-100%]");
   };
 
   useEffect(() => {
     setCount(prevCount => prevCount + 1)
   }, [router])
+
+  useEffect(() => {
+    shown ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
+  }, [shown])
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,15 +69,15 @@ const Navbar = () => {
     <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white transition-all duration-400 ${showClass} xl:text-xl text-base`}>
         {loading && <LoadingScreen />}
         <div className='flex items-center 2xl:gap-18 xl:gap-12 lg:gap-10 gap-6 '>
-            <TransitionLink setLoading={setLoading} href="/">
+            <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">
               <img className='lg:h-8 h-6' src="/nav_logo.svg" alt="logo" />
             </TransitionLink>
             {!mobile && <>
-              <TransitionLink setLoading={setLoading} href="/">Inicio</TransitionLink>
-              <TransitionLink setLoading={setLoading} href="/about">Sobre Mí</TransitionLink>
-              <TransitionLink setLoading={setLoading} href="/services">Servicios</TransitionLink>
-              <TransitionLink setLoading={setLoading} href="/socials">Redes Sociales</TransitionLink>
-              <TransitionLink setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
+              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">Inicio</TransitionLink>
+              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/about">Sobre Mí</TransitionLink>
+              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/services">Servicios</TransitionLink>
+              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/socials">Redes Sociales</TransitionLink>
+              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
             </>}
         </div>
         {!mobile && <>
@@ -84,12 +88,12 @@ const Navbar = () => {
         </div>
         :
         <div className='flex items-center gap-6'>
-                <TransitionLink setLoading={setLoading} href="/login">Login</TransitionLink>
+                <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/login">Login</TransitionLink>
                 <TransitionLink setLoading={setLoading} href="/register" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</TransitionLink>
         </div>}
         </>}
         {mobile && <HamburgerButton shown={shown} setShown={setShown}/>}
-        {shown && <NavMenu setShown={setShown} setLoading={setLoading}/>}
+        {shown && <NavMenu shown={shown} setShown={setShown} setLoading={setLoading}/>}
     </div>
   )
 }

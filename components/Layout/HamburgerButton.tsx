@@ -8,7 +8,6 @@ type HamburgerButtonProps = {
 
 const HamburgerButton = ({ shown, setShown }: HamburgerButtonProps) => {
   
-
   return (
     <button
       onClick={() => setShown(!shown)}
