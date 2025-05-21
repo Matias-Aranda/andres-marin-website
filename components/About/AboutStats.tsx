@@ -2,7 +2,7 @@ import React from 'react'
 
 const AboutStats = () => {
   return (
-    <div className='flex flex-col items-center justify-center gap-5 py-20 text-white h-screen'>
+    <div className='flex flex-col items-center justify-center gap-5 py-20 text-white h-screen overflow-hidden'>
         <h2 className='text-[96px] font-display'>Estadísticas</h2>
         <img src="/porsche_cup.png" className='w-[800px] mb-10'/>
         <div className='flex items-center justify-center gap-10'>

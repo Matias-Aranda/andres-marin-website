@@ -70,7 +70,7 @@ const Navbar = () => {
         {loading && <LoadingScreen />}
         <div className='flex items-center 2xl:gap-18 xl:gap-12 lg:gap-10 gap-6 '>
             <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">
-              <img className='lg:h-8 h-6' src="/nav_logo.svg" alt="logo" />
+              <img className='lg:h-8 h-7' src="/nav_logo.svg" alt="logo" />
             </TransitionLink>
             {!mobile && <>
               <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">Inicio</TransitionLink>

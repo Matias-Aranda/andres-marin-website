@@ -1,10 +1,14 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import NewsletterModal from './NewsletterModal'
 
 const Newsletter = () => {
 
   const [shown, setShown] = useState(false)
+
+  useEffect(() => {
+    shown ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
+  }, [shown])
 
   return (
     <div className='h-[700px] flex flex-col items-center justify-center'>

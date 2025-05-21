@@ -18,7 +18,7 @@ const AboutCarousel = () => {
 
 
   return (
-    <div className='h-screen flex flex-col items-center justify-center text-center bg-neutral-50 relative'>
+    <div className='h-screen flex flex-col items-center justify-center text-center bg-neutral-50 relative overflow-hidden'>
         <div className={`flex items-center justify-center gap-49 transition-opacity duration-1000 absolute ${count == 0 ? "opacity-100" : "opacity-0"}`}>
             <img src="/sign.svg" />
             <div className='w-[40%] text-left flex flex-col gap-6'>
