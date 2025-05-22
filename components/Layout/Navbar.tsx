@@ -37,7 +37,7 @@ const Navbar = () => {
     const visible = currentScrollPos < 100 || scrollPos > currentScrollPos;
 
     setScrollPos(currentScrollPos);
-    visible ? setShowClass("bg-background/35 backdrop-blur-xl shadow-[0px_5px_15px_rgba(0,0,0,.4)]") : setShowClass("translate-y-[-100%]");
+    visible ? setShowClass("bg-background/95 backdrop-blur-xl shadow-[0px_5px_15px_rgba(0,0,0,.4)]") : setShowClass("translate-y-[-100%]");
   };
 
   useEffect(() => {
@@ -62,8 +62,6 @@ const Navbar = () => {
     // Cleanup on unmount
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
-  console.log(mobile)
 
   return (
     <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white transition-all duration-400 ${showClass} xl:text-xl text-base`}>

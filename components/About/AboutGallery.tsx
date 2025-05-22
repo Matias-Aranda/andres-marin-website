@@ -11,7 +11,7 @@ gsap.registerPlugin(Draggable, InertiaPlugin);
 
 const DraggableSlider = () => {
 
-  const [mode, setMode] = useState("snap");
+  const [mode, setMode] = useState<"snap" | "free" | "free-snap">("snap");
 
   useEffect(() => {
     const handleResize = () => {
