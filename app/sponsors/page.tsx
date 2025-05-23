@@ -1,3 +1,4 @@
+import SocialsStats from '@/components/Socials/SocialsStats'
 import SponsorsContact from '@/components/Sponsors/SponsorsContact'
 import SponsorsHelmet from '@/components/Sponsors/SponsorsHelmet'
 import SponsorsHero from '@/components/Sponsors/SponsorsHero'
@@ -10,7 +11,7 @@ const page = () => {
     <div>
         <SponsorsHero/>
         <SponsorsHelmet/>
-        <SponsorsInstagram/>
+        <SocialsStats/>
         <SponsorsContact/>
         <Newsletter/>
     </div>

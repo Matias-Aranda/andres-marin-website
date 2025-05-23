@@ -37,7 +37,7 @@ const Navbar = () => {
     const visible = currentScrollPos < 100 || scrollPos > currentScrollPos;
 
     setScrollPos(currentScrollPos);
-    visible ? setShowClass("bg-background/95 backdrop-blur-xl shadow-[0px_5px_15px_rgba(0,0,0,.4)]") : setShowClass("translate-y-[-100%]");
+    visible ? setShowClass("bg-background/80 backdrop-blur-md shadow-[0px_5px_15px_rgba(0,0,0,.6)]") : setShowClass("translate-y-[-100%]");
   };
 
   useEffect(() => {

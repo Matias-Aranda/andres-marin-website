@@ -8,7 +8,6 @@ const page = () => {
   return (
     <div>
         <SocialsHero />
-        <SocialsStats />
         <SocialsVideos />
         <Newsletter />
     </div>

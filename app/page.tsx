@@ -14,9 +14,9 @@ export default function Home() {
     <div>
       <SocialSidebar />
       <Hero />
+      <Links />
       <CurrentSeries />
       <SeriesOverview />
-      <Links />
       <Newsletter />
     </div>
   );
