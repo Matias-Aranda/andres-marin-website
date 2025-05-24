@@ -40,7 +40,7 @@ const Links = () => {
           alt=""
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 transform group-hover:scale-105"
         />
-        <p className='text-neutral-50 z-2'>Apóyame</p>
+        <p className='text-neutral-50'>Apóyame</p>
         <h3 className='text-neutral-50 text-[clamp(1.5rem,4vw,6rem)] font-display mx-0 my-[3%] leading-none z-2'>Sponsor Me</h3>
         <Link href="/sponsors" className='text-primary font-body-light-italic flex gap-2 items-center z-2'>LEER MÁS <img className='h-5' src="/arrow_icon.svg"/></Link>
       </div>
