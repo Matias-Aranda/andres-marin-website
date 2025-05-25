@@ -5,7 +5,7 @@ const SocialsStats = () => {
   return (
     <div>
         <h2 className='text-white text-[128px] text-center font-display-condensed leading-[0.9] uppercase'>Publicita tu <span className='text-primary'>Marca</span></h2>
-        <div className='flex items-center justify-center gap-20 px-20 mb-20'>
+        <div className='flex items-center justify-center gap-20 px-0 2xl:px-20 mb-20'>
             <div className='flex flex-col w-[30%] gap-10'>
                 <div className='flex items-center justify-between border-b border-white pb-10'>
                     <Link target='_blank' href="https://www.instagram.com/andr3smarin8/">
@@ -33,7 +33,7 @@ const SocialsStats = () => {
                     </div>
                 </div>
             </div>
-            <img className='h-[640px] w-[640px]' src="/socials_pfp.png" alt="logo" />
+            <img className='w-[40%]' src="/socials_pfp.png" alt="logo" />
         </div>
     </div>
   )
