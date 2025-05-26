@@ -45,8 +45,8 @@ const page = () => {
     
 
   return (
-    <div className='h-screen flex items-center justify-center bg-[url(/auth_bg.png)] bg-cover bg-center'>
-        <div className='w-[600px] mt-10 py-15 px-20 border border-primary rounded-md bg-background/50 bg-opacity-50 backdrop-blur-lg flex flex-col'>
+    <div className='sm:py-25 flex items-center justify-center bg-[url(/auth_bg.png)] bg-cover bg-center'>
+        <div className='w-full sm:w-[600px] h-screen sm:h-fit py-15 px-5 sm:px-20 sm:border border-primary rounded-md bg-background/50 bg-opacity-50 backdrop-blur-lg flex flex-col'>
             <h1 className='text-[80px] font-display-condensed text-center uppercase text-neutral-50 '>Registro</h1>
             <form className='flex flex-col gap-6 mt-5'>
                 <label className='text-base text-white leading-none flex flex-col gap-4'>
