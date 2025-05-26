@@ -53,7 +53,7 @@ const NavMenu: React.FC<NavMenuProps> = ({ setShown, setLoading, shown }) => {
   return (
     <div className='h-screen w-full flex fixed justify-end top-0 left-0 z-10'>
         <div ref={bgRef} onClick={closeModal} className='bg-[#0C0C1D]/90 absolute w-full h-full z-10'></div>
-        <div ref={modalRef} className='bg-background/50 min-w-[250px  ] w-[40vw] backdrop-blur flex flex-col items-start justify-center gap-6 border-l border-l-primary p-10 z-10 relative'>
+        <div ref={modalRef} className='bg-background/50 min-w-[250px] w-[40vw] backdrop-blur flex flex-col items-start justify-center gap-6 border-l border-l-primary p-10 z-10 relative'>
             <button onClick={closeModal} className='absolute top-2 right-9 w-[40px] h-[40px] z-13'></button>
             <div onClick={closeModal} className='flex flex-col items-start justify-center gap-6'>
                 <TransitionLink setLoading={setLoading} className='w-full' href="/">Inicio</TransitionLink>

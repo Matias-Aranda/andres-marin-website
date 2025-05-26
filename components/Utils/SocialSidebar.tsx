@@ -24,7 +24,7 @@ const SocialSidebar = () => {
       };
 
   return (
-    <div className={"fixed sm:bg-transparent bottom-0 sm:bottom-1/2 left-1/2 sm:left-auto border-primary/30 translate-y-0 sm:translate-y-1/2 -translate-x-1/2 sm:-translate-x-0 sm:right-0 transform flex flex-row sm:flex-col gap-4 p-4 z-[3] rounded-t-lg transition-all duration-400" + " " + showClass}>
+    <div className={"fixed sm:bg-transparent bottom-0 sm:bottom-1/2 left-1/2 sm:left-auto border-primary/30 sm:shadow-[none] sm:backdrop-blur-none sm:border-transparent translate-y-0 sm:translate-y-1/2 -translate-x-1/2 sm:-translate-x-0 sm:right-0 transform flex flex-row sm:flex-col gap-4 p-4 z-[3] rounded-t-lg transition-all duration-400" + " " + showClass}>
         <Link target='_blank' href="https://www.instagram.com/andr3smarin8/">
             <img className='h-6 w-6' src="/instagram_logo.svg" alt="logo" />
         </Link>
