@@ -8,23 +8,23 @@ const SocialSidebar = () => {
     const [scrollPos, setScrollPos] = React.useState(0);
 
     useEffect(() => {
-        scrollPos < 100 ? setShowClass("") : {}
+        scrollPos < 100 ? setShowClass("border-transparent") : {}
         window.addEventListener("scroll", handleScroll);
         return () => {
-            window.removeEventListener("scroll", handleScroll);
+          window.removeEventListener("scroll", handleScroll);
         };
-    }, [scrollPos]);
+      }, [scrollPos]);
     
-    const handleScroll = () => {
+      const handleScroll = () => {
         const currentScrollPos = window.scrollY;
         const visible = currentScrollPos < 100 || scrollPos > currentScrollPos;
-
+    
         setScrollPos(currentScrollPos);
-        visible ? setShowClass("bg-background/60 backdrop-blur-md shadow-[0px_5px_15px_rgba(0,0,0,.8)] sm:shadow-[none] sm:backdrop-blur-none ") : setShowClass("translate-y-[100%]");
-    };
+        visible ? setShowClass("bg-background/95 backdrop-blur-lg shadow-[0px_5px_15px_rgba(0,0,0,.6)] border border-b-0") : setShowClass("translate-y-[100%]");
+      };
 
   return (
-    <div className={"fixed sm:bg-transparent bottom-0 sm:bottom-1/2 left-1/2 sm:left-auto translate-y-0 sm:translate-y-1/2 -translate-x-1/2 sm:-translate-x-0 sm:right-0 transform flex flex-row sm:flex-col gap-4 p-4 z-[3] rounded-t-lg transition-all duration-400" + " " + showClass}>
+    <div className={"fixed sm:bg-transparent bottom-0 sm:bottom-1/2 left-1/2 sm:left-auto border-primary/30 translate-y-0 sm:translate-y-1/2 -translate-x-1/2 sm:-translate-x-0 sm:right-0 transform flex flex-row sm:flex-col gap-4 p-4 z-[3] rounded-t-lg transition-all duration-400" + " " + showClass}>
         <Link target='_blank' href="https://www.instagram.com/andr3smarin8/">
             <img className='h-6 w-6' src="/instagram_logo.svg" alt="logo" />
         </Link>
