@@ -10,6 +10,7 @@ import { logout } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 import HamburgerButton from './HamburgerButton';
 import NavMenu from './NavMenu';
+import NavOptions from './NavOptions';
 
 
 
@@ -22,6 +23,7 @@ const Navbar = () => {
   const [count, setCount] = React.useState("");
   const [mobile, setMobile] = React.useState(false);
   const [shown, setShown] = React.useState(false);
+  const [openOptions, setOpenOptions] = React.useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -63,6 +65,10 @@ const Navbar = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  function toggleOptions() {
+    setOpenOptions(!openOptions);
+  }
+
   return (
     <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white border-primary/50 transition-all duration-400 ${showClass} xl:text-xl text-base`}>
         {loading && <LoadingScreen />}
@@ -80,9 +86,12 @@ const Navbar = () => {
         </div>
         {!mobile && <>
         {user ? 
-        <div className='flex items-center gap-4 cursor-pointer' onClick={logout}>
-              <p>{user.displayName}</p>
-              <img src="/user_pfp.svg" className='h-[35px]'/>
+        <div className={`flex flex-col items-start gap-4 cursor-pointer select-none relative ${openOptions}`}>
+              <div className='flex items-center gap-4 z-10 px-5' onClick={toggleOptions}>
+                <p>{user.displayName}</p>
+                <img src="/user_pfp.svg" className='h-[35px]'/>
+              </div>
+              {openOptions && <NavOptions logout={logout} />}
         </div>
         :
         <div className='flex items-center gap-6'>
