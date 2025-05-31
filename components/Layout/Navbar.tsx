@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useRef } from 'react'
 import Link from 'next/link'
 import TransitionLink from '../Utils/TransitionLink';
 import gsap from 'gsap';
@@ -24,6 +24,7 @@ const Navbar = () => {
   const [mobile, setMobile] = React.useState(false);
   const [shown, setShown] = React.useState(false);
   const [openOptions, setOpenOptions] = React.useState(false);
+  const optionsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -69,6 +70,22 @@ const Navbar = () => {
     setOpenOptions(!openOptions);
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (optionsRef.current && !optionsRef.current.contains(event.target as Node)) {
+        toggleOptions();
+      }
+    };
+
+    if (openOptions) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [openOptions]);
+
   return (
     <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white border-primary/50 transition-all duration-400 ${showClass} xl:text-xl text-base`}>
         {loading && <LoadingScreen />}
@@ -86,12 +103,12 @@ const Navbar = () => {
         </div>
         {!mobile && <>
         {user ? 
-        <div className={`flex flex-col items-start gap-4 cursor-pointer select-none relative ${openOptions}`}>
+        <div ref={optionsRef} className={`flex flex-col items-start gap-4 cursor-pointer select-none relative ${openOptions}`}>
               <div className='flex items-center gap-4 z-10 px-5' onClick={toggleOptions}>
                 <p>{user.displayName}</p>
                 <img src="/user_pfp.svg" className='h-[35px]'/>
               </div>
-              {openOptions && <NavOptions logout={logout} />}
+              {openOptions && <NavOptions toggleOptions={toggleOptions} logout={logout} />}
         </div>
         :
         <div className='flex items-center gap-6'>
