@@ -1,48 +1,80 @@
+"use client"
+import { useAuth } from '@/context/auth-context';
 import React from 'react'
 
 const page = () => {
+
+    const { user } = useAuth();
+
   return (
     <div className='p-20 relative'>
         <img src="/sponsors_bg.png" className='absolute h-full w-[50%] object-cover top-0 right-0 z-5'/>
-        <form className='text-white bg-background/50 bg-opacity-50 backdrop-blur-lg ml-20 w-[50%] border border-primary rounded-md p-10 z-10 relative'>
-            <div className='flex justify-between border-b border-primary/50 p-2 gap-2'>
+        <form className='text-white bg-background/50 bg-opacity-50 backdrop-blur-lg ml-20 mt-20 w-[60%] border border-primary rounded-md py-12 px-15 z-8 relative'>
+            <div className='flex justify-between border-b border-primary/50 py-6 gap-2'>
                 <div className='flex items-center gap-8'>
-                    <img src="/about_bg.png" className='rounded-full w-40 h-40 object-cover'/>
+                    <img src="/about_bg.png" className='rounded-full w-30 h-30 object-cover'/>
                     <div className=''>
-                        <h3>Foto de Perfil</h3>
+                        <h3 className="">Foto de Perfil</h3>
                         <p className='text-base text-white/50'>Foto de Perfil</p>
                     </div>
                 </div>
-                <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-2 px-6 self-center rounded-md'>Cambiar foto</button>
+                <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 self-center rounded'>Cambiar</button>
             </div>
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>
-                    <h3>Nombre de usuario</h3>
-                    <p className='text-base text-white/50'>Foto de Perfil</p>
+                    <h3 className="">Nombre de usuario</h3>
+                    <p className='text-base text-white/50'>Modifica tu Nombre de Usuario actual.</p>
                 </div>
-                <label className='text-base text-white leading-none flex flex-col gap-4'>
+                <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
                     Nombre
-                    <input type="text" required className='h-[55px] border border-primary p-2 rounded text-white self-start w-100'/>
+                    <input type="text" value={user && user.displayName ? user.displayName : ""} required className='h-[55px] border border-primary p-2 rounded text-white self-start w-100'/>
                 </label>
             </div>
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>
-                    <h3>Nombre de usuario</h3>
-                    <p className='text-base text-white/50'>Foto de Perfil</p>
+                    <h3 className="">Email</h3>
+                    <p className='text-base text-white/50'>Dirección de email asociada a tu cuenta.</p>
                 </div>
                 <div className='flex justify-between items-end'>
-                    <label className='text-base text-white leading-none flex flex-col gap-4'>
-                        Nombre
-                        <input type="text" required className='h-[55px] border border-primary p-2 rounded text-white self-start w-100'/>
+                    <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
+                        Email
+                        <input value={user && user.email ? user.email : ""} disabled={true} type="text" required className='h-[55px] border border-primary p-2 rounded text-white self-start w-100 disabled:bg-white/5 disabled:border-primary/20 disabled:text-white/40'/>
                     </label>
-                    <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-2 px-6 rounded-md'>Cambiar foto</button>
+                    <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
                 </div>
             </div>
-            <div className='flex border-b border-primary/50 p-2 gap-2'>
-                
+            <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
+                <div className=''>
+                    <h3 className="">Seguridad</h3>
+                    <p className='text-base text-white/50'>Modifica tu contraseña o activa la verificación de 2 factores.</p>
+                </div>
+                <div className='flex justify-between items-end'>
+                    <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
+                        Contraseña
+                        <input type="password" value={"secretpassword"} disabled={true} required className='h-[55px] tracking-[.2rem] border border-primary p-2 rounded text-white self-start w-100 disabled:bg-white/5 disabled:border-primary/20 disabled:text-white/40'/>
+                    </label>
+                    <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
+                </div>
             </div>
-            <div className='flex border-b border-primary/50 p-2 gap-2'>
-                
+            <div className='flex flex-col py-4 gap-6'>
+                <div className=''>
+                    <h3 className="">Seguridad</h3>
+                    <p className='text-base text-white/50'>Modifica tu contraseña o activa la verificación de 2 factores.</p>
+                </div>
+                <div className='flex justify-between items-end'>
+                    <div className=''>
+                        <p className=" text-base">Cerrar sesión</p>
+                        <p className='text-sm text-white/50'>Salir de la sesión actual y volver a la página de inicio.</p>
+                    </div>
+                    <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
+                </div>
+                <div className='flex justify-between items-end'>
+                    <div className=''>
+                        <p className=" text-base">Eliminar mi cuenta</p>
+                        <p className='text-sm text-white/50'>Eliminar permanentemente mi cuenta y todos los datos asociados.</p>
+                    </div>
+                    <button className='bg-[#A93A32] text-white hover:bg-[#A93A32]/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Eliminar cuenta</button>
+                </div>
             </div>
             
         </form>
