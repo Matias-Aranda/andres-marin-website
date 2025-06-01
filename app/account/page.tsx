@@ -1,24 +1,32 @@
 "use client"
+import UploadPfpModal from '@/components/Account/UploadPfpModal';
 import { useAuth } from '@/context/auth-context';
 import React from 'react'
 
 const page = () => {
 
     const { user } = useAuth();
+    const [showUploadModal, setShowUploadModal] = React.useState(false);
+
+    const toggleModal = (e: React.MouseEvent<HTMLElement>): void => {
+        e.preventDefault();
+        setShowUploadModal(!showUploadModal);
+    }
 
   return (
-    <div className='p-20 relative'>
+    <div className='p-20 relative z-5'>
+        {showUploadModal && <UploadPfpModal toggleModal={toggleModal} setShowUploadModal={setShowUploadModal}/>}
         <img src="/sponsors_bg.png" className='absolute h-full w-[50%] object-cover top-0 right-0 z-5'/>
         <form className='text-white bg-background/50 bg-opacity-50 backdrop-blur-lg ml-20 mt-20 w-[60%] border border-primary rounded-md py-12 px-15 z-8 relative'>
             <div className='flex justify-between border-b border-primary/50 py-6 gap-2'>
                 <div className='flex items-center gap-8'>
-                    <img src="/about_bg.png" className='rounded-full w-30 h-30 object-cover'/>
+                    <img src={user?.photoURL ? user.photoURL : "/user_pfp.svg" } className='rounded-full w-30 h-30 object-cover border border-primary border-2'/>
                     <div className=''>
                         <h3 className="">Foto de Perfil</h3>
-                        <p className='text-base text-white/50'>Foto de Perfil</p>
+                        <p className='text-sm text-white/50'>PNG, JPG, JPEG, WEBP</p>
                     </div>
                 </div>
-                <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 self-center rounded'>Cambiar</button>
+                <button onClick={toggleModal} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 self-center rounded'>Cambiar</button>
             </div>
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>

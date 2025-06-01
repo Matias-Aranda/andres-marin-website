@@ -103,10 +103,10 @@ const Navbar = () => {
         </div>
         {!mobile && <>
         {user ? 
-        <div ref={optionsRef} className={`flex flex-col items-start gap-4 cursor-pointer select-none relative ${openOptions}`}>
+        <div ref={optionsRef} className={`flex flex-col items-start gap-4 cursor-pointer select-none relative ${openOptions} select-none`}>
               <div className='flex items-center gap-4 z-10 px-5' onClick={toggleOptions}>
                 <p>{user.displayName}</p>
-                <img src="/user_pfp.svg" className='h-[35px]'/>
+                <img src={user?.photoURL ? user.photoURL : "/user_pfp.svg"} className='h-[35px] w-[35px] object-cover rounded-full border border-primary border-2'/>
               </div>
               {openOptions && <NavOptions toggleOptions={toggleOptions} logout={logout} />}
         </div>
