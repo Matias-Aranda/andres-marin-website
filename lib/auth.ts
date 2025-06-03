@@ -30,3 +30,10 @@ export const signInWithGoogle = () => {
 };
 
 export const logout = () => signOut(auth);
+
+
+export const changeUsername = (displayName: string) => {
+  return updateProfile(auth.currentUser!, {
+    displayName,
+  })
+}
