@@ -7,6 +7,7 @@ import Footer from "@/components/Layout/Footer";
 import LoadingStyle from "@/components/Utils/LoadingScreen";
 import { useState } from "react";
 import { AuthProvider } from '@/context/auth-context';
+import VerifyEmailPopup from "@/components/Account/VerifyEmailPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <AuthProvider>
           <Navbar />
             {children}
+          <VerifyEmailPopup/>
           <Footer />
         </AuthProvider>
       </body>

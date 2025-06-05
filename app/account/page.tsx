@@ -15,6 +15,8 @@ const page = () => {
     const [showConfirm, setShowConfirm] = React.useState(false);
     const [username, setUsername] = React.useState(user?.displayName || "");
 
+    const providers = user?.providerData.map((profile) => profile.providerId);
+
     useEffect(() => {
         if (user) {
             setUsername(user.displayName || "");
@@ -90,7 +92,7 @@ const page = () => {
                     </div>
                 </label>
             </div>
-            <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
+            {!providers?.includes("google.com") && <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>
                     <h3 className="">Email</h3>
                     <p className='text-base text-white/50'>Dirección de email asociada a tu cuenta.</p>
@@ -102,7 +104,7 @@ const page = () => {
                     </label>
                     <button onClick={toggleEmailModal} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
                 </div>
-            </div>
+            </div>}
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>
                     <h3 className="">Seguridad</h3>
