@@ -6,7 +6,7 @@ import {
   signOut,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  updateProfile,
+  updateProfile, updateEmail, reauthenticateWithCredential, EmailAuthProvider
 } from 'firebase/auth';
 
 export const signUp = async (email: string, password: string, displayName: string) => {
@@ -36,4 +36,17 @@ export const changeUsername = (displayName: string) => {
   return updateProfile(auth.currentUser!, {
     displayName,
   })
+}
+
+export async function changeUserEmail(newEmail: string, currentPassword: string) {
+  const user = auth.currentUser;
+
+  if (!user || !user.email) throw new Error("User not logged in");
+
+  // Re-authenticate
+  const credential = EmailAuthProvider.credential(user.email, currentPassword);
+  await reauthenticateWithCredential(user, credential);
+
+  // Update email
+  await updateEmail(user, newEmail);
 }

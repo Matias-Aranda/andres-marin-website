@@ -6,11 +6,11 @@ import { useRouter } from 'next/navigation';
 
 interface ToggleModalEvent extends React.MouseEvent<HTMLElement> {}
 interface UploadPfpModalProps {
-    toggleModal: (e: React.MouseEvent<HTMLElement>) => void;
+    togglePhotoModal: (e: React.MouseEvent<HTMLElement>) => void;
     setShowUploadModal?: (show: boolean) => void;
 }
 
-const UploadPfpModal: React.FC<UploadPfpModalProps> = ({ toggleModal, setShowUploadModal }) => {
+const UploadPfpModal: React.FC<UploadPfpModalProps> = ({ togglePhotoModal, setShowUploadModal }) => {
 
     const [preview, setPreview] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
@@ -43,7 +43,7 @@ const UploadPfpModal: React.FC<UploadPfpModalProps> = ({ toggleModal, setShowUpl
 
   return (
     <div className='absolute h-screen w-full top-0 left-0 flex items-center justify-center bg-[#0C0C1D]/50 text-white z-[10]'>
-        <div className='absolute h-full w-full top-0 left-0 flex bg-[#0C0C1D]/90 z-6' onClick={loading ? undefined : toggleModal}></div>
+        <div className='absolute h-full w-full top-0 left-0 flex bg-[#0C0C1D]/90 z-6' onClick={loading ? undefined : togglePhotoModal}></div>
         <div className='flex flex-col gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg rounded-xl items-center justify-center py-10 px-20 border border-primary/50 z-7'>
             <h3 className='uppercase self-start text-primary text-2xl'>Subir imagen</h3>
             <div className='flex flex-col items-center justify-center py-10 px-25 rounded-lg gap-4 bg-[#101026]/50'>

@@ -1,7 +1,8 @@
 "use client"
 import UploadPfpModal from '@/components/Account/UploadPfpModal';
+import ChangeEmailModal from '@/components/Account/ChangeEmailModal';
 import { useAuth } from '@/context/auth-context';
-import { changeUsername } from '@/lib/auth';
+import { changeUsername, logout } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
 
@@ -10,6 +11,7 @@ const page = () => {
     const { user } = useAuth();
     const router = useRouter();
     const [showUploadModal, setShowUploadModal] = React.useState(false);
+    const [showEmailModal, setShowEmailModal] = React.useState(false);
     const [showConfirm, setShowConfirm] = React.useState(false);
     const [username, setUsername] = React.useState(user?.displayName || "");
 
@@ -19,9 +21,19 @@ const page = () => {
         }
     },[user])
 
-    const toggleModal = (e: React.MouseEvent<HTMLElement>): void => {
+    useEffect(() => {
+        showUploadModal ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
+        showEmailModal ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
+    }, [showUploadModal, showEmailModal])
+
+    const togglePhotoModal = (e: React.MouseEvent<HTMLElement>): void => {
         e.preventDefault();
         setShowUploadModal(!showUploadModal);
+    }
+
+    const toggleEmailModal = (e: React.MouseEvent<HTMLElement>): void => {
+        e.preventDefault();
+        setShowEmailModal(!showEmailModal);
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -42,9 +54,16 @@ const page = () => {
         setUsername(user?.displayName || "");
     }
 
+    const handleLogout = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
+        await logout();
+        router.push("/");
+    }
+
   return (
     <div className='p-20 relative z-5'>
-        {showUploadModal && <UploadPfpModal toggleModal={toggleModal} setShowUploadModal={setShowUploadModal}/>}
+        {showUploadModal && <UploadPfpModal togglePhotoModal={togglePhotoModal} setShowUploadModal={setShowUploadModal}/>}
+        {showEmailModal && <ChangeEmailModal toggleEmailModal={toggleEmailModal} setShowEmailModal={setShowEmailModal}/>}
         <img src="/account_bg.png" className='absolute h-full w-[50%] object-cover top-0 right-0 z-5'/>
         <form className='text-white bg-background/50 bg-opacity-50 backdrop-blur-lg ml-20 mt-20 w-[60%] border border-primary rounded-md py-12 px-15 z-8 relative'>
             <div className='flex justify-between border-b border-primary/50 py-6 gap-2'>
@@ -55,7 +74,7 @@ const page = () => {
                         <p className='text-sm text-white/50'>PNG, JPG, JPEG, WEBP</p>
                     </div>
                 </div>
-                <button onClick={toggleModal} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 self-center rounded'>Cambiar</button>
+                <button onClick={togglePhotoModal} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 self-center rounded'>Cambiar</button>
             </div>
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>
@@ -81,7 +100,7 @@ const page = () => {
                         Email
                         <input value={user && user.email ? user.email : ""} disabled={true} type="text" required className='h-[55px] border border-primary p-2 rounded text-white self-start w-100 disabled:bg-white/5 disabled:border-primary/20 disabled:text-white/40'/>
                     </label>
-                    <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
+                    <button onClick={toggleEmailModal} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
                 </div>
             </div>
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
@@ -107,7 +126,7 @@ const page = () => {
                         <p className=" text-base">Cerrar sesión</p>
                         <p className='text-sm text-white/50'>Salir de la sesión actual y volver a la página de inicio.</p>
                     </div>
-                    <button className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cambiar</button>
+                    <button onClick={(e) => {handleLogout(e)}} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Cerrar sesión</button>
                 </div>
                 <div className='flex justify-between items-end'>
                     <div className=''>
