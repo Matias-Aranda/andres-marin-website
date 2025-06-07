@@ -108,7 +108,7 @@ const page = () => {
             <div className='flex flex-col border-b border-primary/50 py-4 gap-2'>
                 <div className=''>
                     <h3 className="">Seguridad</h3>
-                    <p className='text-base text-white/50'>Modifica tu contraseña o activa la verificación de 2 factores.</p>
+                    <p className='text-base text-white/50'>Modifica tu contraseña o activa la autenticación de 2 factores.</p>
                 </div>
                 <div className='flex justify-between items-end'>
                     <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
