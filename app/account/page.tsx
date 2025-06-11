@@ -5,6 +5,7 @@ import { useAuth } from '@/context/auth-context';
 import { changeUsername, logout } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
+import DeleteAccountModal from '@/components/Account/DeleteAccountModal';
 
 const page = () => {
 
@@ -12,6 +13,7 @@ const page = () => {
     const router = useRouter();
     const [showUploadModal, setShowUploadModal] = React.useState(false);
     const [showEmailModal, setShowEmailModal] = React.useState(false);
+    const [showDeleteModal, setShowDeleteModal] = React.useState(false);
     const [showConfirm, setShowConfirm] = React.useState(false);
     const [username, setUsername] = React.useState(user?.displayName || "");
 
@@ -36,6 +38,11 @@ const page = () => {
     const toggleEmailModal = (e: React.MouseEvent<HTMLElement>): void => {
         e.preventDefault();
         setShowEmailModal(!showEmailModal);
+    }
+
+    const toggleDeleteModal = (e: React.MouseEvent<HTMLElement>): void => {
+        e.preventDefault();
+        setShowDeleteModal(!showDeleteModal);
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -66,6 +73,7 @@ const page = () => {
     <div className='p-20 relative z-5'>
         {showUploadModal && <UploadPfpModal togglePhotoModal={togglePhotoModal} setShowUploadModal={setShowUploadModal}/>}
         {showEmailModal && <ChangeEmailModal toggleEmailModal={toggleEmailModal} setShowEmailModal={setShowEmailModal}/>}
+        {showDeleteModal && <DeleteAccountModal toggleDeleteModal={toggleDeleteModal} setShowDeleteModal={setShowDeleteModal}/>}
         <img src="/account_bg.png" className='absolute h-full w-[50%] object-cover top-0 right-0 z-5'/>
         <form className='text-white bg-background/50 bg-opacity-50 backdrop-blur-lg ml-20 mt-20 w-[60%] border border-primary rounded-md py-12 px-15 z-8 relative'>
             <div className='flex justify-between border-b border-primary/50 py-6 gap-2'>
@@ -132,10 +140,10 @@ const page = () => {
                 </div>
                 <div className='flex justify-between items-end'>
                     <div className=''>
-                        <p className=" text-base text-[#D2392D]">Eliminar mi cuenta</p>
+                        <p className="text-base text-[#D2392D]">Eliminar mi cuenta</p>
                         <p className='text-sm text-white/50'>Eliminar permanentemente mi cuenta y todos los datos asociados.</p>
                     </div>
-                    <button className='bg-[#A93A32] text-white hover:bg-[#A93A32]/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Eliminar cuenta</button>
+                    <button onClick={toggleDeleteModal} className='bg-[#A93A32] text-white hover:bg-[#A93A32]/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded'>Eliminar cuenta</button>
                 </div>
             </div>
             

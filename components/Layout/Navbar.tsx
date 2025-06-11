@@ -105,7 +105,7 @@ const Navbar = () => {
         {user ? 
         <div ref={optionsRef} className={`flex flex-col items-start min-w-45 cursor-pointer select-none relative ${openOptions} select-none`}>
               <div className='flex items-center justify-start w-full gap-3 z-10 px-5' onClick={toggleOptions}>
-                <img src={user?.photoURL ? user.photoURL : "/user_pfp.svg"} className='h-[35px] w-[35px] object-cover ml-[-3px] rounded-full border border-primary border-2'/>
+                <img src={user?.photoURL ? user.photoURL : "/user_pfp.svg"} className='h-[35px] w-[35px] object-cover ml-[-3px] rounded-full border border-primary shadow-lg border-2'/>
                 <p className='text-shadow-lg'>{user.displayName}</p>
               </div>
               {openOptions && <NavOptions toggleOptions={toggleOptions} logout={logout} />}

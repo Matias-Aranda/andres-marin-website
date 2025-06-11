@@ -33,7 +33,7 @@ const AboutCarousel = () => {
             <div className='w-[90%] sm:w-[80%] lg:w-[40%] text-left flex flex-col gap-6'>
                 <h3 className='text-neutral-900 text-[48px] sm:text-[64px] font-display mx-0 my-0 lg:my-4 leading-none'>Porsche <span className='text-primary'>Cup</span></h3>
                 <p>Compitiendo en una de las series más desafiantes de iRacing, la Porsche Cup (Fixed), busco consolidarme entre los mejores del mundo, compartiendo el proceso y la realidad detrás del Simracing competitivo.</p>
-                <Link href="/porsche_cup" className='text-neutral-900 text-2xl xl-:text-3xl font-body-light-italic flex gap-4 items-center lg:mt-15 w-fit'>LEER MÁS <img src="/arrow_icon_black.svg"/></Link>
+                <Link href="https://www.iracing.com/series/porsche-cup/" target='_blank' className='text-neutral-900 text-2xl xl-:text-3xl font-body-light-italic flex gap-4 items-center lg:mt-15 w-fit'>LEER MÁS <img src="/arrow_icon_black.svg"/></Link>
             </div>
         </div>
     </div>
