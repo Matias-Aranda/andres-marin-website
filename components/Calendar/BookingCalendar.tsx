@@ -59,7 +59,6 @@ const BookingCalendar = () => {
               ? `${!isSelected && "hover:bg-white/10 hover:text-primary"} cursor-pointer`
               : 'text-white/30 cursor-not-allowed pointer-events-none',
             isSelected ? 'bg-primary text-black' : '',
-            isToday != isSelected ? 'bg-primary/10 text-white' : '',
             isBeforeToday(date) ? 'text-white/20 pointer-events-none' : '',
           ].join(' ');
         }}
