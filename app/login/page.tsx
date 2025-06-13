@@ -23,7 +23,35 @@ export default function page() {
             setPassword("")
             router.push("/")
         } catch (err: any) {
-        setError(err.message);
+            let message = "Ocurrió un error. Por favor, intentá nuevamente.";
+
+            if (err.code === "auth/email-already-in-use") {
+                message = "Este correo ya está registrado.";
+            } else if (err.code === "auth/invalid-email") {
+                message = "Por favor, ingresa un correo electrónico válido.";
+            } else if (err.code === "auth/weak-password") {
+                message = "La contraseña debe tener al menos 6 caracteres.";
+            } else if (err.code === "auth/missing-password") {
+                message = "Por favor, ingresa una contraseña.";
+            } else if (err.code === "auth/operation-not-allowed") {
+                message = "El tipo de autenticación no está habilitado.";
+            } else if (err.code === "auth/too-many-requests") {
+                message = "Demasiados intentos fallidos. Inténtalo de nuevo más tarde.";
+            } else if (err.code === "auth/network-request-failed") {
+                message = "Error de red. Verifica tu conexión a internet.";
+            } else if (err.code === "auth/internal-error") {
+                message = "Ocurrió un error interno. Intentalo de nuevo más tarde.";
+            } else if (err.code === "auth/invalid-credential") {
+                message = "Credenciales inválidas. Verifica los datos ingresados.";
+            } else if (err.code === "auth/user-disabled") {
+                message = "Este usuario ha sido deshabilitado.";
+            } else if (err.code === "auth/user-not-found") {
+                message = "Usuario no encontrado. Verifica el correo ingresado.";
+            } else if (err.code === "auth/wrong-password") {
+                message = "Contraseña incorrecta.";
+            }
+            
+            setError(message);
         }
     };
 
@@ -52,6 +80,7 @@ export default function page() {
                     Contraseña
                     <input type="password" className='h-[55px] border border-primary p-2 rounded text-white' value={password} onChange={(e) => setPassword(e.target.value)}/>
                 </label>
+                {error && <p className='text-[#A93A32] text-base my-4'>{error}</p>}
                 <Link href="" className='underline text-white text-base'>Olvidaste tu contraseña?</Link>
                 <button type="button" className='text-base text-background px-8 py-4 bg-primary rounded-md cursor-pointer' onClick={handleSubmit}>Log In</button>
                 <button type="button" className='text-base text-background px-8 py-4 bg-[#f2f2f2] rounded-md cursor-pointer relative' onClick={handleGoogleLogin}>
