@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import './calendar.css';
 
-const BookingCalendar = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+type BookingCalendarProps = {
+  setSelectedDate: React.Dispatch<React.SetStateAction<Date | null>>;
+  selectedDate: Date | null;
+};
+
+const BookingCalendar: React.FC<BookingCalendarProps> = ({ setSelectedDate, selectedDate }) => {
 
   // Days available: Monday = 1, Wednesday = 3
   const availableWeekdays = [1, 3 , 5, 6];
@@ -27,8 +31,8 @@ const BookingCalendar = () => {
     };
 
   return (
-    <div className='select-none text-white'>
-      <h2>Book a Class</h2>
+    <div className='select-none text-white flex flex-col gap-4'>
+      <h2>Selecciona una fecha</h2>
       <Calendar
         onClickDay={handleDateChange}
         value={selectedDate}
