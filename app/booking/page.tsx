@@ -24,16 +24,16 @@ const page = () => {
         </p>
         <h3 className='pt-10'>Selecciona uno de los horarios disponibles</h3>
         <div className='flex flex-wrap gap-4 mt-4'>
-          <p onClick={() => handleSelect('9:00 AM')} className={`${selectedTime === '9:00 AM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>9:00 AM</p>
-          <p onClick={() => handleSelect('10:00 AM')} className={`${selectedTime === '10:00 AM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>10:00 AM</p>
-          <p onClick={() => handleSelect('11:00 AM')} className={`${selectedTime === '11:00 AM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>11:00 AM</p>
-          <p onClick={() => handleSelect('12:00 AM')} className={`${selectedTime === '12:00 AM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>12:00 AM</p>
+          <p onClick={() => handleSelect('9:00 AM')} className={`${selectedTime === '9:00 AM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>9:00 AM</p>
+          <p onClick={() => handleSelect('10:00 AM')} className={`${selectedTime === '10:00 AM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>10:00 AM</p>
+          <p onClick={() => handleSelect('11:00 AM')} className={`${selectedTime === '11:00 AM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>11:00 AM</p>
+          <p onClick={() => handleSelect('12:00 AM')} className={`${selectedTime === '12:00 AM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>12:00 AM</p>
         </div>
         <div className='flex flex-wrap gap-4 mt-4'>
-          <p onClick={() => handleSelect('2:00 PM')} className={`${selectedTime === '2:00 PM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border  w-fit bg-black/30 cursor-pointer`}>2:00 PM</p>
-          <p onClick={() => handleSelect('4:00 PM')} className={`${selectedTime === '4:00 PM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>4:00 PM</p>
-          <p onClick={() => handleSelect('5:00 PM')} className={`${selectedTime === '5:00 PM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>5:00 PM</p>
-          <p onClick={() => handleSelect('7:00 PM')} className={`${selectedTime === '7:00 PM' ? 'border-primary bg-primary/30' : 'border-white/50'} py-2 px-4 text-base text-white/80 rounded-3xl border w-fit bg-black/30 cursor-pointer`}>7:00 PM</p>
+          <p onClick={() => handleSelect('2:00 PM')} className={`${selectedTime === '2:00 PM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border  w-fit bg-black/30 cursor-pointer`}>2:00 PM</p>
+          <p onClick={() => handleSelect('4:00 PM')} className={`${selectedTime === '4:00 PM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>4:00 PM</p>
+          <p onClick={() => handleSelect('5:00 PM')} className={`${selectedTime === '5:00 PM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>5:00 PM</p>
+          <p onClick={() => handleSelect('7:00 PM')} className={`${selectedTime === '7:00 PM' ? 'border-primary bg-primary/30 text-white' : 'border-white/50 text-white/80'} py-2 px-4 text-base rounded-3xl border w-fit bg-black/30 cursor-pointer`}>7:00 PM</p>
         </div>
         <button disabled={!selectedDate || !selectedTime} className='mt-25 text-base disabled:text-white/20 text-black px-8 py-4 bg-primary rounded-md cursor-pointer disabled:bg-black/30'>Reservar</button>
       </div>

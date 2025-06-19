@@ -1,6 +1,6 @@
 .react-calendar {
   background-color: rgba(0, 0, 0, 0.3); /* match your dark background */
-  border: 1px solid #C2DC54;
+  border: 1px solid hsla(71, 66%, 60%, 0.6);
   border-radius: 12px;
   color: #f1f1f1;
   font-family: 'Inter', sans-serif;

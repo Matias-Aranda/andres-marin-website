@@ -1,3 +1,4 @@
+import Courses from '@/components/Socials/Courses'
 import SocialsHero from '@/components/Socials/SocialsHero'
 import SocialsStats from '@/components/Socials/SocialsStats'
 import SocialsVideos from '@/components/Socials/SocialsVideos'
@@ -8,6 +9,7 @@ const page = () => {
   return (
     <div>
         <SocialsHero />
+        <Courses/>
         <Newsletter />
     </div>
   )

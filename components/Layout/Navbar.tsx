@@ -97,7 +97,7 @@ const Navbar = () => {
               <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">Inicio</TransitionLink>
               <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/about">Sobre Mí</TransitionLink>
               <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/services">Servicios</TransitionLink>
-              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/socials">Redes Sociales</TransitionLink>
+              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/socials">Cursos</TransitionLink>
               <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
             </>}
         </div>

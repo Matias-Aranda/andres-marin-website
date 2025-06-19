@@ -15,7 +15,7 @@ const ServicesLinks = () => {
             <li className='text-neutral-50 text-base xl:text-xl font-body-light-italic flex items-start gap-2 leading-relaxed'><img src="/check_icon.svg" className='mt-1'/> Coaching Session a través de Discord, con ejemplos prácticos</li>
             <li className='text-neutral-50 text-base xl:text-xl font-body-light-italic flex items-start gap-2 leading-relaxed'><img src="/check_icon.svg" className='mt-1'/> Trabajamos en iRacing, Assetto Corsa, Automobilista 2, y KartKraft</li>
         </ul>
-        <Link href="#" className='text-base text-background my-2 px-30 py-2.5 bg-primary rounded-md self-center'>Book Now</Link>
+        <Link href="/pricing" className='text-base text-background my-2 px-30 py-2.5 bg-primary rounded-md self-center'>Book Now</Link>
       </div>
       <div className='aspect[4/3] order-4 lg:order-3 flex flex-col items-start justify-center text-left px-[8%] xl:px-[15%] py-15 bg-background bg-cover bg-center bg-no-repeat gap-1 sm:gap-6'>
         <h3 className='text-neutral-50 text-[64px] xl:text-[80px] text-left font-display-condensed mx-0 my-4 leading-none uppercase'>Lap <span className='text-primary'>Analysis</span></h3>
