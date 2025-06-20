@@ -32,7 +32,6 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ setSelectedDate, sele
 
   return (
     <div className='flex flex-col gap-4 text-white select-none'>
-      <h2>Selecciona una fecha</h2>
       <Calendar
         onClickDay={handleDateChange}
         value={selectedDate}
@@ -67,9 +66,6 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ setSelectedDate, sele
           ].join(' ');
         }}
       />
-      {selectedDate && (
-        <p>Selected date: {selectedDate.toDateString()}</p>
-      )}
     </div>
   );
 };
