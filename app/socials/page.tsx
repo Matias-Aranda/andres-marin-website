@@ -1,7 +1,7 @@
-import Courses from '@/components/Socials/Courses'
-import SocialsHero from '@/components/Socials/SocialsHero'
-import SocialsStats from '@/components/Socials/SocialsStats'
-import SocialsVideos from '@/components/Socials/SocialsVideos'
+import Courses from '@/components/Courses/Courses'
+import SocialsHero from '@/components/Courses/SocialsHero'
+import SocialsStats from '@/components/Courses/SocialsStats'
+import SocialsVideos from '@/components/Courses/SocialsVideos'
 import Newsletter from '@/components/Utils/Newsletter'
 import React from 'react'
 

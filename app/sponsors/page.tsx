@@ -1,4 +1,4 @@
-import SocialsStats from '@/components/Socials/SocialsStats'
+import SocialsStats from '@/components/Courses/SocialsStats'
 import SponsorsContact from '@/components/Sponsors/SponsorsContact'
 import SponsorsHelmet from '@/components/Sponsors/SponsorsHelmet'
 import SponsorsHero from '@/components/Sponsors/SponsorsHero'
