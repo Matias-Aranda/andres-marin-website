@@ -19,7 +19,7 @@ Built with:
 
 ## Live Demo 🚀
 
-You can check out the live version of the website here: [https://andres-marin-simracing.vercel.app](https://andres-marin-simracing.vercel.app)
+You can check out the live version of the website here: [https://andres-marin-simracing.vercel.app](https://andres-marin-website.vercel.app/)
 
 ## Work in Progress 🚧
 
