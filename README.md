@@ -11,11 +11,11 @@ Built with:
 
 ## Features
 
-* 📄 About section to get to know the coach
-* 🗕️ Book private SimRacing classes
-* 💳 Subscribe to a monthly membership for ongoing support
-* 🔐 User authentication and account creation via Firebase
-* 📨 Newsletter subscription for updates and tips
+* About section to get to know the coach
+* Book private SimRacing classes
+* Subscribe to a monthly membership for ongoing support
+* User authentication and account creation via Firebase
+* Newsletter subscription for updates and tips
 
 ## Work in Progress 🚧
 
