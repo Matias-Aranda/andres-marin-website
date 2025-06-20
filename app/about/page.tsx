@@ -5,7 +5,7 @@ import Newsletter from '@/components/Utils/Newsletter'
 import SocialSidebar from '@/components/Utils/SocialSidebar'
 import AboutGallery from '@/components/About/AboutGallery'
 import React from 'react'
-import SocialsVideos from '@/components/Socials/SocialsVideos'
+import SocialsVideos from '@/components/Courses/SocialsVideos'
 
 const page = () => {
   return (
