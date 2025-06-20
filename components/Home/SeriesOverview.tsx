@@ -3,16 +3,16 @@ import React from 'react'
 
 const SeriesOverview = () => {
   return (
-    <div className='flex flex-col lg:flex-row items-center justify-center pb-30 p-15 sm:px-30 overflow-hidden gap-6 bg-gradient-to-t from-slate-500/5 to-background to-70% px-10 border-b border-primary/50'>
+    <div className='flex lg:flex-row flex-col justify-center items-center gap-6 bg-gradient-to-t from-slate-500/5 to-70% to-background p-15 px-10 sm:px-30 pb-30 border-primary/50 border-b overflow-hidden'>
         <div className='flex flex-col items-center lg:items-start'>
-            <h1 className='text-primary text-[48px] sm:text-[72px] 2xl:text-[96px] font-display text-center lg:text-left leading-none'><span className='text-neutral-50'>Porsche</span> Cup</h1>
-            <img src="/porsche_cup_fixed_badge.png" className='w-[80%] lg:hidden'/>
-            <p className='text-neutral-50 leading-relaxed w-full 2xl:w-4/5 my-6 '>
+            <h1 className='font-display text-[48px] text-primary sm:text-[72px] 2xl:text-[96px] lg:text-left text-center leading-none'><span className='text-neutral-50'>Porsche</span> Cup</h1>
+            <img src="/porsche_cup_fixed_badge.png" className='lg:hidden w-[80%]'/>
+            <p className='my-6 w-full 2xl:w-4/5 text-neutral-50 leading-relaxed'>
                 Compitiendo en una de las series más desafiantes de iRacing, la Porsche Cup (Fixed), 
                 busco consolidarme entre los mejores del mundo, compartiendo el proceso y 
                 la realidad detrás del Simracing competitivo.
             </p>
-            <Link href="/porsche_cup" className='text-primary text-base sm:text-xl lg:text-3xl font-body-light-italic flex gap-2 lg:gap-4 items-center self-start'>
+            <Link href="/porsche_cup" className='flex items-center self-start gap-2 lg:gap-4 text-primary text-base sm:text-xl lg:text-3xl font-body-light-italic'>
               LEER MÁS 
               <img src="/arrow_icon.svg" className=''/>
             </Link>

@@ -11,11 +11,11 @@ const Newsletter = () => {
   }, [shown])
 
   return (
-    <div className='h-[700px] flex flex-col items-center justify-center'>
+    <div className='flex flex-col justify-center items-center h-[700px]'>
         {shown && <NewsletterModal setShown={setShown}/>}
-        <h3 className='text-neutral-50 text-[32px] sm:text-[48px] font-display mx-0 leading-none'>Newsletter</h3>
-        <p className='text-neutral-50 text-base w-[450px] max-w-[80%] text-center my-6'>Regístrate para tener actualizaciones y noticias sobre nosotros a tu Email.</p>
-        <button className='text-base text-background my-2 px-8 py-2.5 px-15 sm:px-25 bg-primary rounded-md cursor-pointer' onClick={() => setShown(true)}>Suscribirse</button>
+        <h3 className='mx-0 font-display text-[32px] text-neutral-50 sm:text-[48px] leading-none'>Newsletter</h3>
+        <p className='my-6 w-[450px] max-w-[80%] text-neutral-50 text-base text-center'>Regístrate para tener actualizaciones y noticias sobre nosotros a tu Email.</p>
+        <button className='bg-primary my-2 px-15 px-8 sm:px-25 py-2.5 rounded-md text-background text-base cursor-pointer' onClick={() => setShown(true)}>Suscribirse</button>
     </div>
   )
 }

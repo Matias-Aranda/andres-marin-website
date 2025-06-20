@@ -37,13 +37,13 @@ const DraggableSlider = () => {
   })
 
   return (
-    <div className="overflow-hidden w-full mx-auto bg-white py-40 relative">
-      <h3 className='absolute font-body-light-italic uppercase top-30 left-[5%] md:left-[17%] text-[28px]'>Galería</h3>
-      <div ref={sliderRef} className="keen-slider my-10">
-        <img src="/gallery/1.png" className="keen-slider__slide h-[500px] xl:h-[600px] object-cover" />
-        <img src="/gallery/2.png" className="keen-slider__slide h-[500px] xl:h-[600px] object-cover" />
-        <img src="/gallery/3.png" className="keen-slider__slide h-[500px] xl:h-[600px] object-cover" />
-        <img src="/gallery/4.png" className="keen-slider__slide h-[500px] xl:h-[600px] object-cover" />
+    <div className="relative bg-white mx-auto py-40 w-full overflow-hidden">
+      <h3 className='top-30 left-[5%] md:left-[17%] absolute text-[28px] font-body-light-italic uppercase'>Galería</h3>
+      <div ref={sliderRef} className="my-10 keen-slider">
+        <img src="/gallery/1.png" className="h-[500px] xl:h-[600px] object-cover keen-slider__slide" />
+        <img src="/gallery/2.png" className="h-[500px] xl:h-[600px] object-cover keen-slider__slide" />
+        <img src="/gallery/3.png" className="h-[500px] xl:h-[600px] object-cover keen-slider__slide" />
+        <img src="/gallery/4.png" className="h-[500px] xl:h-[600px] object-cover keen-slider__slide" />
       </div>
     </div>
   );

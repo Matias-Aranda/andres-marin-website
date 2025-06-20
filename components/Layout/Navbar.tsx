@@ -89,9 +89,9 @@ const Navbar = () => {
   return (
     <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white border-primary/50 transition-all duration-400 ${showClass} xl:text-xl text-base`}>
         {loading && <LoadingScreen />}
-        <div className='flex items-center 2xl:gap-18 xl:gap-12 lg:gap-10 gap-6 '>
+        <div className='flex items-center gap-6 lg:gap-10 2xl:gap-18 xl:gap-12'>
             <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">
-              <img className='lg:h-8 h-7' src="/nav_logo.svg" alt="logo" />
+              <img className='h-7 lg:h-8' src="/nav_logo.svg" alt="logo" />
             </TransitionLink>
             {!mobile && <>
               <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">Inicio</TransitionLink>
@@ -104,8 +104,8 @@ const Navbar = () => {
         {!mobile && <>
         {user ? 
         <div ref={optionsRef} className={`flex flex-col items-start min-w-45 cursor-pointer select-none relative ${openOptions} select-none`}>
-              <div className='flex items-center justify-start w-full gap-3 z-10 px-5' onClick={toggleOptions}>
-                <img src={user?.photoURL ? user.photoURL : "/user_pfp.svg"} className='h-[35px] w-[35px] object-cover ml-[-3px] rounded-full border border-primary shadow-lg border-2'/>
+              <div className='z-10 flex justify-start items-center gap-3 px-5 w-full' onClick={toggleOptions}>
+                <img src={user?.photoURL ? user.photoURL : "/user_pfp.svg"} className='shadow-lg ml-[-3px] border border-2 border-primary rounded-full w-[35px] h-[35px] object-cover'/>
                 <p className='text-shadow-lg'>{user.displayName}</p>
               </div>
               {openOptions && <NavOptions toggleOptions={toggleOptions} logout={logout} />}
@@ -113,7 +113,7 @@ const Navbar = () => {
         :
         <div className='flex items-center gap-6'>
                 <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/login">Login</TransitionLink>
-                <TransitionLink setLoading={setLoading} href="/register" className='text-base text-background px-8 py-2.5 bg-primary rounded-md'>Registrarse</TransitionLink>
+                <TransitionLink setLoading={setLoading} href="/register" className='bg-primary px-8 py-2.5 rounded-md text-background text-base'>Registrarse</TransitionLink>
         </div>}
         </>}
         {mobile && <HamburgerButton shown={shown} setShown={setShown}/>}

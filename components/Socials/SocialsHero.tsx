@@ -2,8 +2,8 @@ import React from 'react'
 
 const SocialsHero = () => {
   return (
-    <div className='h-[90vh] flex flex-col items-center justify-end text-center pb-15 bg-[url(/socials_bg.png)] bg-cover bg-center bg-no-repeat border-b border-primary'>
-        <h1 className='text-neutral-50 text-[128px] font-display m-0'>Cursos <span className='text-primary'></span></h1>
+    <div className='flex flex-col justify-end items-center bg-[url(/socials_bg.png)] bg-cover bg-no-repeat bg-center pb-15 border-primary border-b h-[90vh] text-center'>
+        <h1 className='m-0 font-display text-[128px] text-neutral-50'>Cursos <span className='text-primary'></span></h1>
     </div>
   )
 }

@@ -42,15 +42,15 @@ const UploadPfpModal: React.FC<UploadPfpModalProps> = ({ togglePhotoModal, setSh
 
 
   return (
-    <div className='absolute h-screen w-full top-0 left-0 flex items-center justify-center bg-[#0C0C1D]/50 text-white z-[10]'>
-        <div className='absolute h-full w-full top-0 left-0 flex bg-[#0C0C1D]/90 z-6' onClick={loading ? undefined : togglePhotoModal}></div>
-        <div className='flex flex-col gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg rounded-xl items-center justify-center py-10 px-20 border border-primary/50 z-7'>
-            <h3 className='uppercase self-start text-primary text-2xl'>Subir imagen</h3>
-            <div className='flex flex-col items-center justify-center py-10 px-25 rounded-lg gap-4 bg-[#101026]/50'>
-                <img src={preview ? preview : "/user_pfp.svg"} className='h-[190px] w-[190px] rounded-full object-cover'/>
+    <div className='top-0 left-0 z-[10] absolute flex justify-center items-center bg-[#0C0C1D]/50 w-full h-screen text-white'>
+        <div className='top-0 left-0 z-6 absolute flex bg-[#0C0C1D]/90 w-full h-full' onClick={loading ? undefined : togglePhotoModal}></div>
+        <div className='z-7 flex flex-col justify-center items-center gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg px-20 py-10 border border-primary/50 rounded-xl'>
+            <h3 className='self-start text-primary text-2xl uppercase'>Subir imagen</h3>
+            <div className='flex flex-col justify-center items-center gap-4 bg-[#101026]/50 px-25 py-10 rounded-lg'>
+                <img src={preview ? preview : "/user_pfp.svg"} className='rounded-full w-[190px] h-[190px] object-cover'/>
                 <p>Vista Previa</p>
-                <input type="file" accept="image/*" onChange={handleFileChange} className='bg-primary cursor-pointer text-black hover:bg-primary/70 cursor-pointer text-base py-[6px] px-10 w-50 rounded' />
-                <p className='text-sm text-white/50'>PNG, JPG, JPEG, WEBP. MÁX 2MB</p>
+                <input type="file" accept="image/*" onChange={handleFileChange} className='bg-primary hover:bg-primary/70 px-10 py-[6px] rounded w-50 text-black text-base cursor-pointer cursor-pointer' />
+                <p className='text-white/50 text-sm'>PNG, JPG, JPEG, WEBP. MÁX 2MB</p>
             </div>
             <p onClick={loading ? undefined : closeModal} className={`text-primary ${!loading ? "cursor-pointer" : "cursor-default"} self-end text-[20px]`}>{loading ? "Cargando..." : `Listo`}</p>
         </div>

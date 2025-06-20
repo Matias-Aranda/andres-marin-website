@@ -39,20 +39,20 @@ const ChangeEmailModal: React.FC<ChangeEmailModalProps> = ({ toggleEmailModal, s
     }
 
     return (
-        <div className='fixed h-screen w-full top-0 left-0 flex items-center justify-center bg-[#0C0C1D]/50 text-white z-[10]'>
-            <div className='absolute h-full w-full top-0 left-0 flex bg-[#0C0C1D]/90 z-6' onClick={toggleEmailModal}></div>
-            <div className='flex flex-col gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg rounded-xl items-center justify-center py-10 px-20 pt-15 border border-primary/50 z-7'>
-                <h3 className='uppercase self-start text-primary text-2xl'>Cambiar dirección de Email</h3>
+        <div className='top-0 left-0 z-[10] fixed flex justify-center items-center bg-[#0C0C1D]/50 w-full h-screen text-white'>
+            <div className='top-0 left-0 z-6 absolute flex bg-[#0C0C1D]/90 w-full h-full' onClick={toggleEmailModal}></div>
+            <div className='z-7 flex flex-col justify-center items-center gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg px-20 py-10 pt-15 border border-primary/50 rounded-xl'>
+                <h3 className='self-start text-primary text-2xl uppercase'>Cambiar dirección de Email</h3>
                 <div className='flex flex-col justify-between items-end gap-4'>
-                    <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
+                    <label className='flex flex-col gap-4 mt-3 text-white text-base leading-none'>
                         Nuevo Email
-                        <input onChange={(e) => setNewEmail(e.target.value)} type="text" required className='h-[55px] border border-primary p-2 rounded text-white self-start w-100 disabled:bg-white/5 disabled:border-primary/20 disabled:text-white/40'/>
+                        <input onChange={(e) => setNewEmail(e.target.value)} type="text" required className='self-start disabled:bg-white/5 p-2 border border-primary disabled:border-primary/20 rounded w-100 h-[55px] text-white disabled:text-white/40'/>
                     </label>
-                    <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
+                    <label className='flex flex-col gap-4 mt-3 text-white text-base leading-none'>
                         Contraseña
-                        <input onChange={(e) => setPassword(e.target.value)} type="password" required className='h-[55px] tracking-[.2rem] border border-primary p-2 rounded text-white self-start w-100 disabled:bg-white/5 disabled:border-primary/20 disabled:text-white/40'/>
+                        <input onChange={(e) => setPassword(e.target.value)} type="password" required className='self-start disabled:bg-white/5 p-2 border border-primary disabled:border-primary/20 rounded w-100 h-[55px] text-white disabled:text-white/40 tracking-[.2rem]'/>
                     </label>
-                    <button onClick={(e) => handleEmailChange(e)} className='bg-primary text-black hover:bg-primary/70 cursor-pointer text-base py-3 px-10 w-full mt-6 rounded'>Cambiar</button>
+                    <button onClick={(e) => handleEmailChange(e)} className='bg-primary hover:bg-primary/70 mt-6 px-10 py-3 rounded w-full text-black text-base cursor-pointer'>Cambiar</button>
                 </div>
                 <p onClick={loading ? undefined : closeModal}  className={`text-primary ${!loading ? "cursor-pointer" : "cursor-default"} self-end text-[20px]`}>{loading ? "" : `Listo`}</p>
             </div>

@@ -47,15 +47,15 @@ export default function VerifyEmailPopup() {
   if (!showPopup) return null;
 
   return (
-    <div className="fixed bottom-0 w-full bg-primary bg-opacity-60 py-6 px-10 gap-2 rounded-t-lg text-base flex flex-col items-center justify-center z-50">
-        <img onClick={() => setShowPopup(false)} className="absolute opacity-85 hover:opacity-100 right-10 top-6 cursor-pointer" src={"/close_icon.svg"}/>
-        <h2 className="font-body-bold text-md self-start">Verifica tu Email</h2>
+    <div className="bottom-0 z-50 fixed flex flex-col justify-center items-center gap-2 bg-primary bg-opacity-60 px-10 py-6 rounded-t-lg w-full text-base">
+        <img onClick={() => setShowPopup(false)} className="top-6 right-10 absolute opacity-85 hover:opacity-100 cursor-pointer" src={"/close_icon.svg"}/>
+        <h2 className="self-start font-body-bold text-md">Verifica tu Email</h2>
       <div className="flex justify-between items-center w-full text-center">
         <p className="text-black/80">Verifica tu dirección de correo electrónico para acceder a todas las características.</p>
         {!sent ? (
           <a
             onClick={handleSendVerification}
-            className="text-black/80 rounded underline cursor-pointer hover:text-black"
+            className="rounded text-black/80 hover:text-black underline cursor-pointer"
           >
             Enviar correo de verificación
             
@@ -66,7 +66,7 @@ export default function VerifyEmailPopup() {
 
         {/* <button
           onClick={handleCheckVerification}
-          className="mt-2 underline text-sm text-gray-600 hover:text-gray-800"
+          className="mt-2 text-gray-600 hover:text-gray-800 text-sm underline"
           disabled={loading}
         >
           {loading ? "Checking..." : "I've verified my email"}

@@ -42,16 +42,16 @@ const DeleteAccountModal: React.FC<ChangeDeleteModalProps> = ({ toggleDeleteModa
     }
 
   return (
-    <div className='fixed h-screen w-full top-0 left-0 flex items-center justify-center bg-[#0C0C1D]/50 text-white z-[10]'>
-        <div className='absolute h-full w-full top-0 left-0 flex bg-[#0C0C1D]/90 z-6' onClick={toggleDeleteModal}></div>
-        <div className='flex flex-col gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg rounded-xl items-center justify-center py-10 px-20 pt-15 border border-[#A93A32] z-7'>
-            <h3 className='uppercase self-start text-[#A93A32] text-2xl'>Seguro que deseas eliminar tu cuenta? esta accion no se puede revertir</h3>
+    <div className='top-0 left-0 z-[10] fixed flex justify-center items-center bg-[#0C0C1D]/50 w-full h-screen text-white'>
+        <div className='top-0 left-0 z-6 absolute flex bg-[#0C0C1D]/90 w-full h-full' onClick={toggleDeleteModal}></div>
+        <div className='z-7 flex flex-col justify-center items-center gap-6 bg-background/50 bg-opacity-50 backdrop-blur-lg px-20 py-10 pt-15 border border-[#A93A32] rounded-xl'>
+            <h3 className='self-start text-[#A93A32] text-2xl uppercase'>Seguro que deseas eliminar tu cuenta? esta accion no se puede revertir</h3>
             <div className='flex flex-col justify-between items-end gap-4'>
-                <label className='text-base text-white leading-none flex flex-col gap-4 mt-3'>
+                <label className='flex flex-col gap-4 mt-3 text-white text-base leading-none'>
                     Confirma tu contraseña
-                    <input onChange={(e) => setPassword(e.target.value)} type="password" required className='h-[55px] tracking-[.2rem] border border-[#A93A32] p-2 rounded text-white self-start w-100 disabled:bg-white/5 disabled:border-[#A93A32]/20 disabled:text-white/40'/>
+                    <input onChange={(e) => setPassword(e.target.value)} type="password" required className='self-start disabled:bg-white/5 p-2 border border-[#A93A32] disabled:border-[#A93A32]/20 rounded w-100 h-[55px] text-white disabled:text-white/40 tracking-[.2rem]'/>
                 </label>
-                <button onClick={(e) => handleDelete(e)} className='bg-[#A93A32] text-white hover:bg-[#A93A32]/70 cursor-pointer text-base py-3 px-10 w-full mt-6 rounded'>Eliminar mi cuenta</button>
+                <button onClick={(e) => handleDelete(e)} className='bg-[#A93A32] hover:bg-[#A93A32]/70 mt-6 px-10 py-3 rounded w-full text-white text-base cursor-pointer'>Eliminar mi cuenta</button>
             </div>
         </div>
     </div>

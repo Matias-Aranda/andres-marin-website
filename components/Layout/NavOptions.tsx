@@ -19,9 +19,9 @@ const NavOptions: React.FC<NavOptionsProps> = ({ logout, toggleOptions }) => {
   }
 
   return (
-    <div className='flex flex-col items-start rounded-b-lg border border-primary/50 border-t-0 pt-17 top-[-16px] bg-background/90 backdrop-blur-lg shadow-[0px_5px_15px_rgba(0,0,0,.6)] w-full justify-center gap-2 absolute text-white'>
-        <Link onClick={toggleOptions} href="/account" className='w-full p-4 hover:bg-primary/50'>Mi cuenta</Link>
-        <div className='w-full p-4 pb-5 hover:bg-primary/50 rounded-b-lg' onClick={handleLogout}>Cerrar Sesión</div>
+    <div className='top-[-16px] absolute flex flex-col justify-center items-start gap-2 bg-background/90 shadow-[0px_5px_15px_rgba(0,0,0,.6)] backdrop-blur-lg pt-17 border border-primary/50 border-t-0 rounded-b-lg w-full text-white'>
+        <Link onClick={toggleOptions} href="/account" className='hover:bg-primary/50 p-4 w-full'>Mi cuenta</Link>
+        <div className='hover:bg-primary/50 p-4 pb-5 rounded-b-lg w-full' onClick={handleLogout}>Cerrar Sesión</div>
     </div>
   )
 }

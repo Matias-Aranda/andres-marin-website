@@ -23,8 +23,8 @@ const LoadingScreen = () => {
   }, []);
 
   return (
-    <div ref={loadingRef} className='fixed top-0 left-0 w-full h-screen flex items-center justify-center bg-background z-[999]'>
-        <img src="/loading.svg" alt="Loading..." className='animate-pulse object-cover' />
+    <div ref={loadingRef} className='top-0 left-0 z-[999] fixed flex justify-center items-center bg-background w-full h-screen'>
+        <img src="/loading.svg" alt="Loading..." className='object-cover animate-pulse' />
     </div>
   )
 }

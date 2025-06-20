@@ -31,20 +31,20 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ setSelectedDate, sele
     };
 
   return (
-    <div className='select-none text-white flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 text-white select-none'>
       <h2>Selecciona una fecha</h2>
       <Calendar
         onClickDay={handleDateChange}
         value={selectedDate}
         minDate={new Date()}
-        className="bg-background p-4 border border-primary/50 w-150 rounded-xl text-center shadow-lg grid gap-2 text-sm"
+        className="gap-2 grid bg-background shadow-lg p-4 border border-primary/50 rounded-xl w-150 text-sm text-center"
         prev2Label={null}
         next2Label={null}
-        prevLabel={<span className="text-white text-xl px-2 hover:text-primary py-2 px-4 cursor-pointer rounded hover:bg-white/10">‹</span>}
-        nextLabel={<span className="text-white text-xl px-2 hover:text-primary py-2 px-4 cursor-pointer rounded hover:bg-white/10">›</span>}
+        prevLabel={<span className="hover:bg-white/10 px-2 px-4 py-2 rounded text-white hover:text-primary text-xl cursor-pointer">‹</span>}
+        nextLabel={<span className="hover:bg-white/10 px-2 px-4 py-2 rounded text-white hover:text-primary text-xl cursor-pointer">›</span>}
         // 👇 Prevent changing the view when clicking the month label
         navigationLabel={({ label }) => (
-            <div className="text-primary font-semibold select-none cursor-default w-full uppercase text-center">
+            <div className="w-full font-semibold text-primary text-center uppercase cursor-default select-none">
             {label}
             </div>
         )}
