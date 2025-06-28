@@ -33,7 +33,7 @@ const page = () => {
                     <li className='[&::marker]:text-primary text-base'>Adaptación al simulador y al equipo</li>
                     <li className='[&::marker]:text-primary text-base'>Consejos prácticos para progresar desde el primer día</li>
                 </ul>
-                <Link href="/booking" className='bg-primary mt-auto px-8 py-4 rounded-md w-full text-black text-base text-center cursor-pointer'>Reservar</Link>
+                <Link href="/plans/half-session" className='bg-primary mt-auto px-8 py-4 rounded-md w-full text-black text-base text-center cursor-pointer'>Reservar</Link>
             </div>
             <div className='flex flex-col items-start gap-4 bg-black/30 px-10 py-10 border border-primary/50 rounded-xl w-[430px] text-white'>
                 <div className='flex justify-between items-center w-full'>
@@ -53,7 +53,7 @@ const page = () => {
                     <li className='[&::marker]:text-primary text-base'>Desarrollo de consistencia en tiempos de vuelta</li>
                     <li className='[&::marker]:text-primary text-base'>Identificación y corrección de malos hábitos</li>
                 </ul>
-                <Link href="/booking" className='bg-primary mt-auto px-8 py-4 rounded-md w-full text-black text-base text-center cursor-pointer'>Reservar</Link>
+                <Link href="/plans/full-session" className='bg-primary mt-auto px-8 py-4 rounded-md w-full text-black text-base text-center cursor-pointer'>Reservar</Link>
             </div>
             <div className='flex flex-col items-start gap-4 bg-black/30 px-10 py-10 border border-primary/50 rounded-xl w-[430px] text-white'>
                 <div className='flex justify-between items-center w-full'>
@@ -73,7 +73,7 @@ const page = () => {
                     <li className='[&::marker]:text-primary text-base'>Simulación de condiciones reales de competencia</li>
                     <li className='[&::marker]:text-primary text-base'>Adaptación a diferentes coches y circuitos</li>
                 </ul>
-                <Link href="/booking" className='bg-primary mt-auto px-8 py-4 rounded-md w-full text-black text-base text-center cursor-pointer'>Reservar</Link>
+                <Link href="/membership" className='bg-primary mt-auto px-8 py-4 rounded-md w-full text-black text-base text-center cursor-pointer'>Reservar</Link>
             </div>
         </div>
     </div>
