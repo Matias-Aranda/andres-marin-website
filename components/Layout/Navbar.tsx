@@ -1,9 +1,9 @@
 "use client"
-import React, { useRef } from 'react'
+import React, { useRef, useTransition } from 'react'
 import Link from 'next/link'
 import TransitionLink from '../Utils/TransitionLink';
 import gsap from 'gsap';
-import LoadingScreen from '../Utils/LoadingScreen';
+import LoadingScreen from '../Utils/Transition';
 import { useEffect } from 'react';
 import { useAuth } from '@/context/auth-context';
 import { logout } from '@/lib/auth';
@@ -11,13 +11,14 @@ import { useRouter } from 'next/navigation';
 import HamburgerButton from './HamburgerButton';
 import NavMenu from './NavMenu';
 import NavOptions from './NavOptions';
+import Transition from '../Utils/Transition';
 
 
 
 const Navbar = () => {
 
   const { user } = useAuth();
-  const [loading, setLoading] = React.useState(false);
+  const [transitioning, setTransitioning] = useTransition();
   const [showClass, setShowClass] = React.useState("");
   const [scrollPos, setScrollPos] = React.useState(0);
   const [count, setCount] = React.useState("");
@@ -88,17 +89,17 @@ const Navbar = () => {
 
   return (
     <div className={`flex items-center justify-between px-8 lg-px-10 xl:px-15 py-4 fixed top-0 left-0 right-0 z-9 text-white border-primary/50 transition-all duration-400 ${showClass} xl:text-xl text-base`}>
-        {loading && <LoadingScreen />}
+        {transitioning && <Transition />}
         <div className='flex items-center gap-6 lg:gap-10 2xl:gap-18 xl:gap-12'>
-            <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">
+            <TransitionLink className='text-shadow-lg' href="/">
               <img className='h-7 lg:h-8' src="/nav_logo.svg" alt="logo" />
             </TransitionLink>
             {!mobile && <>
-              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/">Inicio</TransitionLink>
-              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/about">Sobre Mí</TransitionLink>
-              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/services">Servicios</TransitionLink>
-              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/socials">Cursos</TransitionLink>
-              <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/sponsors">Sponsor Me</TransitionLink>
+              <TransitionLink className='text-shadow-lg' href="/">Inicio</TransitionLink>
+              <TransitionLink className='text-shadow-lg' href="/about">Sobre Mí</TransitionLink>
+              <TransitionLink className='text-shadow-lg' href="/services">Servicios</TransitionLink>
+              <TransitionLink className='text-shadow-lg' href="/socials">Cursos</TransitionLink>
+              <TransitionLink className='text-shadow-lg' href="/sponsors">Sponsor Me</TransitionLink>
             </>}
         </div>
         {!mobile && <>
@@ -112,12 +113,12 @@ const Navbar = () => {
         </div>
         :
         <div className='flex items-center gap-6'>
-                <TransitionLink className='text-shadow-lg' setLoading={setLoading} href="/login">Login</TransitionLink>
-                <TransitionLink setLoading={setLoading} href="/register" className='bg-primary px-8 py-2.5 rounded-md text-background text-base'>Registrarse</TransitionLink>
+                <TransitionLink className='text-shadow-lg' href="/login">Login</TransitionLink>
+                <TransitionLink href="/register" className='bg-primary px-8 py-2.5 rounded-md text-background text-base'>Registrarse</TransitionLink>
         </div>}
         </>}
         {mobile && <HamburgerButton shown={shown} setShown={setShown}/>}
-        {shown && <NavMenu shown={shown} setShown={setShown} setLoading={setLoading}/>}
+        {shown && <NavMenu shown={shown} setShown={setShown}/>}
     </div>
   )
 }

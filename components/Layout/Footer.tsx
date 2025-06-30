@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
 import TransitionLink from '../Utils/TransitionLink'
-import LoadingScreen from '../Utils/LoadingScreen';
+import LoadingScreen from '../Utils/Transition';
 import { useState } from 'react';
 
 const Footer = () => {

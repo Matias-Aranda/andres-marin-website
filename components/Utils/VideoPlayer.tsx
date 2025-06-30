@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useTransitionContext } from './TransitionContext';
 
 interface VideoPlayerProps {
   videoUrl: string;
@@ -12,6 +13,8 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
   const [progress, setProgress] = useState(0);
   const [skipped, setSkipped] = useState(false);
   const [ended, setEnded] = useState(false);
+  const [showPlayButton, setShowPlayButton] = useState(true);
+  const {transitioning} = useTransitionContext();
 
   const handleTimeUpdate = () => {
     const video = videoRef.current;
@@ -34,16 +37,30 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
     }
   };
 
+  const playVideo = () => {
+    videoRef.current?.play()
+    setShowPlayButton(false);
+  }
+
+  useEffect(() => {
+  if (!transitioning) {
+    videoRef.current?.play().catch((err) => {
+      // optionally show a play button or retry
+      setShowPlayButton(true);
+    });
+  } else {
+    setShowPlayButton(false);
+  }
+}, [transitioning]);
+
   return (
-    <div className={"absolute top-0 left-0 w-full h-screen mx-auto transition-all duration-400" + (skipped || ended ? " opacity-0 pointer-events-none" : "")}>
+    <div className={"absolute top-0 left-0 w-full h-screen mx-auto transition-all duration-400 z-12" + (skipped || ended ? " opacity-0 pointer-events-none" : "")}>
       <video
         ref={videoRef}
         onTimeUpdate={handleTimeUpdate}
         className="w-full h-full object-cover"
         controls={false}
         src={videoUrl}
-        muted={true}
-        autoPlay={true}
         onEnded={() => setEnded(true)}
       />
 
@@ -66,12 +83,10 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
         </button>
 
       <div className="mt-4 flex justify-center gap-4">
-        <button
-          onClick={() => videoRef.current?.play()}
-          className="bg-green-500 text-white px-4 py-2 rounded"
-        >
-          Play
-        </button>
+        {showPlayButton && <img src={"/play_btn.svg"} alt="Play"
+          onClick={playVideo}
+          className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white cursor-pointer"
+        />}
         <button
           onClick={() => videoRef.current?.pause()}
           className="bg-red-500 text-white px-4 py-2 rounded"

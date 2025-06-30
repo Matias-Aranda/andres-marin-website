@@ -2,8 +2,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useContext, useState, useTransition } from 'react';
 import { usePathname } from 'next/navigation';
+import { useTransitionContext } from '@/components/Utils/TransitionContext';
 
 type TransitionLinkProps = {
   href: string;
@@ -15,19 +16,20 @@ type TransitionLinkProps = {
 export default function TransitionLink({ href, children, setLoading, className}: TransitionLinkProps) {
   const router = useRouter();
   const pathname = usePathname();
+  const {setTransitioning} = useTransitionContext();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
     if(pathname !== href) {
-      setLoading && setLoading(true)
+      setTransitioning(true);
   
       setTimeout(() => {
         router.push(href);
       }, 300);
   
       setTimeout(() => {
-        setLoading && setLoading(false);
+        setTransitioning(false);
       }, 1600);
     }
 

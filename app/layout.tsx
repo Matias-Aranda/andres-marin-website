@@ -4,10 +4,12 @@ import "./globals.css";
 import Navbar from "@/components/Layout/Navbar";
 import SocialSidebar from "@/components/Utils/SocialSidebar";
 import Footer from "@/components/Layout/Footer";
-import LoadingStyle from "@/components/Utils/LoadingScreen";
-import { useState } from "react";
+import LoadingStyle from "@/components/Utils/Transition";
+import { createContext, useContext, useState } from "react";
 import { AuthProvider } from '@/context/auth-context';
 import VerifyEmailPopup from "@/components/Account/VerifyEmailPopup";
+import Transition from "@/components/Utils/Transition";
+import { TransitionProvider } from "@/components/Utils/TransitionContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,19 +28,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
-
-
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}  font-body text-base lg:text-xl`}>
         <AuthProvider>
-          <Navbar />
-            {children}
-          <VerifyEmailPopup/>
-          <Footer />
+          <TransitionProvider>
+            <Transition />
+            <Navbar />
+              {children}
+            <VerifyEmailPopup/>
+            <Footer />
+          </TransitionProvider>
         </AuthProvider>
       </body>
     </html>
