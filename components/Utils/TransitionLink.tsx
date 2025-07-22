@@ -31,6 +31,8 @@ export default function TransitionLink({ href, children, setLoading, className}:
       setTimeout(() => {
         setTransitioning(false);
       }, 1600);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
 

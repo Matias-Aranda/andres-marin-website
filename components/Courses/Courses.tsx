@@ -12,7 +12,7 @@ const Courses = () => {
                 sesiones diseñadas para ayudarte a avanzar de forma estructurada y efectiva.
             </p>
         </div>
-        <div className='flex justify-center items-center gap-6 mt-10 overflow-hidden'>
+        <div className='flex justify-center items-center gap-6 mt-10 overflow-hidden border-b border-primary/50 pb-40 bg-gradient-to-t from-slate-500/5 to-70% to-background'>
             <div className='flex flex-col items-start gap-4 bg-black/30 px-8 py-10 border border-primary/20 rounded-xl w-[400px] text-white/15'>
                 <div className='flex justify-between items-center w-full'>
                     <p>70 horas</p>

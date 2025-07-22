@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const ServicesGuide = () => {
   return (
-    <div className='relative flex flex-col justify-center bg-[url(/guide_bg.png)] bg-cover bg-no-repeat lg:bg-center bg-right p-[8%] h-screen'>
+    <div className='relative flex flex-col justify-center bg-[url(/guide_bg.png)] bg-cover bg-no-repeat lg:bg-center bg-right p-[8%] h-screen border-b border-primary/50'>
         <div className='top-0 left-0 z-1 absolute backdrop-brightness-40 xl:backdrop-brightness-100 w-full h-full'></div>
         <div className='z-2 flex flex-col justify-center items-start w-[70%] md:w-[650px]'>
             <h1 className='mx-0 my-4 font-display-condensed text-[72px] text-neutral-50 sm:text-[92px] md:text-[150px] uppercase leading-[0.9]'>Nuevo en el <span className='text-primary'>Simracing?</span></h1>

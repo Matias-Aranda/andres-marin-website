@@ -13,7 +13,7 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
   const [progress, setProgress] = useState(0);
   const [skipped, setSkipped] = useState(false);
   const [ended, setEnded] = useState(false);
-  const [showPlayButton, setShowPlayButton] = useState(true);
+  const [showPlayButton, setShowPlayButton] = useState(false);
   const {transitioning} = useTransitionContext();
 
   const handleTimeUpdate = () => {
@@ -43,15 +43,24 @@ export default function VideoPlayer({ videoUrl }: VideoPlayerProps) {
   }
 
   useEffect(() => {
-  if (!transitioning) {
-    videoRef.current?.play().catch((err) => {
-      // optionally show a play button or retry
-      setShowPlayButton(true);
-    });
-  } else {
-    setShowPlayButton(false);
-  }
-}, [transitioning]);
+    if (!transitioning) {
+      videoRef.current?.play().catch((err) => {
+        // optionally show a play button or retry
+        setShowPlayButton(true);
+        console.log(err)
+      });
+    } else {
+      setShowPlayButton(false);
+    }
+  }, [transitioning]);
+
+  useEffect(() => {
+    if(skipped || ended) {
+      document.body.classList.remove('overflow-hidden');
+    } else{
+      document.body.classList.add('overflow-hidden');
+    }
+  },[skipped, ended]);
 
   return (
     <div className={"absolute top-0 left-0 w-full h-screen mx-auto transition-all duration-400 z-12" + (skipped || ended ? " opacity-0 pointer-events-none" : "")}>
