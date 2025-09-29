@@ -12,7 +12,7 @@ const Footer = () => {
     <div className='flex justify-between items-center px-10 sm:px-15 lg:px-25 py-10 sm:py-15 border-primary border-t'>
       {loading && <LoadingScreen />}
       <div className='flex flex-col justify-center items-start'>
-        <img src="/footer_logo.svg"  className='h-[40]'/>
+        <img src="/footer_logo.svg"  className='h-[40px]'/>
         <p className='my-6 md:my-12 w-4/5 text-neutral-50 leading-relaxed'>Las explicaciones más completas del Simracing en Habla Hispana.</p>
         <p className='text-[rgba(255,255,255,0.3)] text-base'>Copyright © 2025 P1 Academy. All Rights Reserved.</p>
       </div>
